@@ -25,24 +25,25 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
 
   return (
     <div className="relative max-w-sm mx-auto" data-testid="testimonial-carousel">
-      <Card>
+      <Card className="backdrop-blur-xl bg-card/30 border-primary/20 shadow-xl rounded-3xl overflow-hidden">
         <CardContent className="p-0">
           <img 
             src={testimonials[currentIndex].image} 
             alt="Depoimento" 
-            className="w-full h-auto rounded-lg"
+            className="w-full h-auto rounded-3xl"
           />
         </CardContent>
       </Card>
 
-      <div className="flex items-center justify-center gap-4 mt-4">
+      <div className="flex items-center justify-center gap-6 mt-6">
         <Button 
           size="icon" 
           variant="ghost" 
           onClick={prev}
+          className="rounded-full hover:bg-primary/10 transition-all"
           data-testid="button-carousel-prev"
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-6 h-6" />
         </Button>
         
         <div className="flex gap-2">
@@ -50,8 +51,10 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                index === currentIndex ? 'bg-primary w-6' : 'bg-gray-300'
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === currentIndex 
+                  ? 'bg-gradient-to-r from-primary to-accent w-8 shadow-lg shadow-primary/50' 
+                  : 'bg-muted-foreground/30 w-2 hover:bg-muted-foreground/50'
               }`}
               data-testid={`carousel-dot-${index}`}
             />
@@ -62,9 +65,10 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
           size="icon" 
           variant="ghost" 
           onClick={next}
+          className="rounded-full hover:bg-primary/10 transition-all"
           data-testid="button-carousel-next"
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="w-6 h-6" />
         </Button>
       </div>
     </div>

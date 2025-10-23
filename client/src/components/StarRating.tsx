@@ -19,8 +19,10 @@ export default function StarRating({ rating = 5, maxStars = 5, size = "md" }: St
         <Star
           key={index}
           className={`${sizeClasses[size]} ${
-            index < rating ? "fill-yellow-400 text-yellow-400" : "fill-gray-300 text-gray-300"
-          }`}
+            index < rating 
+              ? "fill-yellow-400 text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]" 
+              : "fill-gray-300 text-gray-300"
+          } transition-all duration-200`}
         />
       ))}
     </div>

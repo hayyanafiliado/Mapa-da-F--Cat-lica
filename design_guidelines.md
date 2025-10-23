@@ -1,150 +1,141 @@
-# Design Guidelines: Mapa da Bíblia Católica - Sales Page Clone
+# Design Guidelines: Mapa da Bíblia Católica - Futuristic & Elegant
 
 ## Design Approach
-**Reference-Based Approach**: Exact clone of provided screenshots for a Brazilian Catholic religious product sales page. This is a high-conversion sales/landing page with emotional appeal and trust-building elements.
+**Futuristic & Elegant**: Modern, sophisticated sales page with sleek gradients, glassmorphism effects, smooth animations, and a premium tech-forward aesthetic while maintaining trust and professionalism for a religious product.
 
 ## Core Design Elements
 
 ### Color Palette
 **Primary Colors:**
-- Brand Blue: 220 100% 50% (vibrant primary blue for CTAs and accents)
-- Pure White: 0 0% 100% (backgrounds, text on blue)
-- Dark Text: 220 15% 20% (body text)
-- Light Gray: 220 10% 95% (section backgrounds)
+- Deep Purple: 260 85% 35% (sophisticated primary, elegant depth)
+- Cyan Accent: 190 95% 55% (futuristic highlight, tech feel)
+- Pure White: 0 0% 100% (crisp backgrounds)
+- Deep Navy: 230 25% 10% (dark backgrounds, premium feel)
+- Light Lavender: 260 35% 96% (soft section backgrounds)
 
 **Accent Colors:**
-- WhatsApp Green: 142 70% 49% (floating button only)
-- Gold/Yellow: 45 100% 51% (guarantee badge, stars in testimonials)
-- Success Green: 142 70% 45% (checkmarks in lists)
+- Electric Blue: 210 100% 60% (CTAs, interactive elements)
+- Gold Shimmer: 45 90% 60% (premium accents, stars)
+- Neon Green: 142 70% 49% (WhatsApp only)
+- Purple Gradient: from 260 85% 45% to 210 100% 50%
+
+**Gradients:**
+- Hero: linear-gradient(135deg, hsl(260 85% 35%) 0%, hsl(210 100% 50%) 100%)
+- Cards: linear-gradient(145deg, hsl(260 15% 98%) 0%, hsl(210 20% 96%) 100%)
+- Accent: linear-gradient(90deg, hsl(190 95% 55%) 0%, hsl(210 100% 60%) 100%)
 
 ### Typography
 **Font Families:**
-- Primary: 'Montserrat' or 'Poppins' (bold, modern, clean)
-- Body: 'Open Sans' or system fonts for readability
+- Primary: 'Inter' or 'Outfit' (modern, clean, tech-forward)
+- Headings: 'Space Grotesk' or 'Outfit' (futuristic, bold)
 
 **Hierarchy:**
-- Hero Headline: 2.5rem to 3.5rem, font-weight 700-800, tight line-height
-- Section Headers: 2rem to 2.5rem, font-weight 700, centered
+- Hero Headline: 3rem to 4rem, font-weight 700, letter-spacing -0.02em
+- Section Headers: 2.5rem to 3rem, font-weight 700, gradient text
 - Subheadings: 1.5rem, font-weight 600
-- Body Text: 1rem to 1.125rem, font-weight 400, line-height 1.6
-- Testimonial Names: 1rem, font-weight 600
-- Price (strikethrough): 1.5rem, font-weight 400, line-through
-- Price (current): 2.5rem to 3rem, font-weight 800, brand blue
+- Body Text: 1.125rem, font-weight 400, line-height 1.7
+- Price: 3.5rem, font-weight 800, gradient text
+
+### Visual Effects
+
+**Glassmorphism:**
+- Cards: backdrop-blur-xl with rgba backgrounds
+- Semi-transparent overlays with blur
+- Subtle borders with gradient shimmer
+
+**Shadows & Glow:**
+- Soft glow effects on CTAs (box-shadow with color)
+- Layered shadows for depth (0 20px 60px rgba)
+- Neon-style glow on hover states
+
+**Animations:**
+- Smooth transitions (0.3s ease)
+- Subtle scale transforms on hover (1.02)
+- Gradient animations on buttons
+- Fade-in animations for sections
 
 ### Layout System
-**Spacing Units:** Use Tailwind spacing: 4, 6, 8, 12, 16, 20, 24
-**Section Padding:** py-12 to py-20 for desktop, py-8 to py-12 for mobile
-**Container:** max-w-6xl centered with px-4 to px-8
-**Component Gaps:** space-y-6 to space-y-8 between major elements
+**Spacing Units:** Generous spacing - 8, 12, 16, 24, 32, 48
+**Section Padding:** py-20 to py-32 for desktop
+**Container:** max-w-7xl with px-6 to px-12
+**Rounded Corners:** rounded-2xl to rounded-3xl (more pronounced)
 
-## Component Library
+## Component Styling
 
 ### Hero Section
-- Full-width background (light gray or white)
-- Centered layout with headline, subheadline, and product image
-- Product image: Large, centered, showcasing the Bible map visual
-- Primary CTA button immediately visible below fold
+- Dark gradient background with subtle animated particles effect
+- Large, bold gradient text
+- Glassmorphic card for testimonial carousel
+- Glowing CTA buttons with gradient backgrounds
 
 ### CTA Buttons
-- Style: Solid blue background (brand blue), white text, rounded corners (rounded-lg)
-- Size: Large and prominent (px-12 py-4), font-weight 700
-- Text: "QUERO O MEU!" in all caps
-- Hover: Slightly darker blue, subtle scale transform
-- Distribution: After hero, mid-page (2-3 times), before pricing, after FAQ
+- Gradient backgrounds (purple to blue)
+- Glow effect on hover
+- Rounded-full or rounded-xl
+- px-10 py-5, font-weight 700
+- Smooth scale animation on hover
+- Shadow with button color
 
-### Testimonial Carousel (Top of Page)
-- Horizontal scrolling cards or dots navigation
-- Each card: White background, rounded corners, padding
-- Content: 5-star rating (gold stars), quote text, customer name, optional photo
-- Navigation: Dot indicators below, subtle arrows (optional)
+### Cards
+- Glassmorphic style with backdrop-blur
+- Gradient borders (1px)
+- Soft shadows with color tint
+- Hover: subtle lift with increased glow
 
-### Testimonial Cards (Multiple Sections)
-- Grid layout: 1 column mobile, 2-3 columns desktop
-- White cards with shadow, rounded corners
-- Each card: Stars (top), testimonial text, name (bold), optional location
-- Section title: "Aprovado por +1.000 fiéis católicos" or similar
+### Testimonial Cards
+- Dark semi-transparent backgrounds
+- Gradient accent borders on left side
+- Stars with gradient gold color
+- Profile images or gradient avatars
 
-### Feature/Benefit Sections
-- Alternating layouts: Image left/text right, then reverse
-- Images: Full-width on mobile, 50% width on desktop
-- Feature lists: Blue checkmarks or checkbox icons, clear bullet points
-- Backgrounds: Alternate white and light gray sections for visual rhythm
+### Feature Sections
+- Alternating dark and light backgrounds
+- Images with subtle border glow
+- Icons with gradient fills
+- Smooth asymmetric layouts
 
-### Content Sections (Educational)
-- Headers: "De Gênesis a Apocalipse", "Panorama da Bíblia", "Eventos Cronológicos"
-- Layout: Text block + supporting image/graphic
-- Typography: Larger body text (1.125rem), generous line-height
-- Visual elements: Icons, small graphics to break up text
+### Pricing Card
+- Premium dark card with gradient border
+- Glowing badge at top
+- Animated price with gradient
+- Feature list with glowing checkmarks
+- Strong CTA with pulsing glow
 
-### Pricing Section
-- Centered, high-contrast design
-- Strikethrough original price (R$ 97,00) in gray
-- Current price in large, bold blue (R$ 37,00)
-- "De/Por" structure clearly visible
-- Include list of what's included (checkmarks)
-- Guarantee mention nearby
+### Guarantee Badge
+- Circular design with gradient ring
+- 3D effect with layered shadows
+- Animated shimmer on border
+- Central focus with radial gradient
 
-### Guarantee Badge Section
-- Prominent circular or shield badge design
-- "30 DIAS DE GARANTIA" in bold text
-- Gold/yellow color accent
-- 5-star rating display
-- Centered with supporting copy about risk-free purchase
+### FAQ
+- Glassmorphic accordion items
+- Gradient line separators
+- Smooth expand/collapse animations
+- Glow on active item
 
-### FAQ Section (Dúvidas Frequentes)
-- Accordion-style interface
-- Questions in bold, answers initially hidden
-- Blue arrow/chevron indicators
-- White background with subtle borders
-- Spacing between items
-
-### Bonus Section
-- Grid of 3 items: "Plano de Leitura", "Diário da Oração", "Versão Imprimível"
-- Each bonus: Icon/image, title, brief description
-- Visual hierarchy showing these are included bonuses
-
-### Footer
-- Simple, centered layout
-- Logo at top
-- Company/product information
-- Links to policies (privacy, terms)
-- Light gray background
-
-### Floating WhatsApp Button
-- Position: Fixed, bottom-right corner
-- Color: WhatsApp green (#25D366)
-- Icon: White WhatsApp logo
-- Size: 60px circle
-- Shadow for depth
-- Slight pulse animation (subtle)
-- z-index: 50 (always on top)
+### WhatsApp Button
+- Floating with strong shadow
+- Pulse animation
+- Gradient background option
+- High z-index with glow
 
 ## Images
-
-### Primary Hero Image
-Large, high-quality image of the "Mapa da Bíblia" product showcasing all 73 books visual layout. Centered, taking 60-70% width on desktop.
-
-### Section Images
-- "De Gênesis a Apocalipse": Close-up of map sections showing biblical timeline
-- "Panorama da Bíblia": Overview of the complete map layout
-- "Eventos Cronológicos": Timeline visualization
-- Product screenshots showing digital files and member area access
-- Bonus items: Visual representations of planner, prayer diary, printable version
-
-### Testimonial Photos
-Optional circular profile photos for testimonial cards (can use placeholder or initials if not provided).
+- Rounded corners (2xl to 3xl)
+- Gradient overlay option for cohesion
+- Glow/shadow effects
+- Border with gradient shimmer
 
 ## Design Principles
-- **Trust-Building:** Multiple testimonial sections, guarantee badge, social proof numbers
-- **Scarcity/Urgency:** Price emphasis (was/now), limited-time feel
-- **Clarity:** Clear value proposition, simple navigation flow
-- **Conversion-Focused:** CTAs at strategic scroll points, removing friction
-- **Emotional Connection:** Religious imagery, faith-based language, community testimonials
-- **Professional:** Clean, modern design despite being a sales page - avoid looking spammy
+- **Modern Premium:** Sleek, sophisticated, tech-forward
+- **Trust Through Elegance:** Professional polish builds credibility
+- **Visual Hierarchy:** Clear through size, color, and glow
+- **Interactive Delight:** Smooth animations, hover states
+- **Accessibility:** Maintain contrast despite dark themes
+- **Futuristic:** Gradients, glass, glow, but tasteful
 
 ## Accessibility
-- High contrast text (dark on white, white on blue)
-- Button sizes adequate for touch (min 44px height)
-- Readable font sizes (minimum 16px body)
-- Alt text for all images
-- Keyboard navigation for accordion FAQ
+- High contrast maintained (WCAG AA minimum)
+- Gradient text with solid fallback
+- Interactive elements min 48px
+- Keyboard navigation preserved
+- Reduced motion for animations (prefers-reduced-motion)

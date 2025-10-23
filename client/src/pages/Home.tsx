@@ -1,4 +1,4 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Sparkles } from "lucide-react";
 import CTAButton from "@/components/CTAButton";
 import SectionHeader from "@/components/SectionHeader";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
@@ -17,10 +17,10 @@ import timelineImage from "@assets/generated_images/Biblical_timeline_infographi
 export default function Home() {
   //todo: remove mock functionality - Testimonial carousel data
   const carouselTestimonials = [
-    { id: 1, image: "https://placehold.co/400x600/f0f0f0/0066FF?text=Depoimento+1" },
-    { id: 2, image: "https://placehold.co/400x600/f0f0f0/0066FF?text=Depoimento+2" },
-    { id: 3, image: "https://placehold.co/400x600/f0f0f0/0066FF?text=Depoimento+3" },
-    { id: 4, image: "https://placehold.co/400x600/f0f0f0/0066FF?text=Depoimento+4" },
+    { id: 1, image: "https://placehold.co/400x600/1a1a2e/7c3aed?text=Depoimento+1" },
+    { id: 2, image: "https://placehold.co/400x600/1a1a2e/7c3aed?text=Depoimento+2" },
+    { id: 3, image: "https://placehold.co/400x600/1a1a2e/7c3aed?text=Depoimento+3" },
+    { id: 4, image: "https://placehold.co/400x600/1a1a2e/7c3aed?text=Depoimento+4" },
   ];
 
   //todo: remove mock functionality - FAQ data
@@ -62,33 +62,42 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-muted to-background py-12 md:py-20">
-        <div className="container max-w-6xl mx-auto px-4">
-          <div className="text-center space-y-8">
-            <div className="inline-block">
-              <img 
-                src="https://placehold.co/200x60/0066FF/FFFFFF?text=MAPA+DO+CATOLICO" 
-                alt="Mapa do Católico" 
-                className="h-12 mx-auto"
-              />
+      {/* Hero Section - Futuristic Gradient */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/10 py-20 md:py-32">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+
+        <div className="container max-w-6xl mx-auto px-6 relative z-10">
+          <div className="text-center space-y-12">
+            <div className="inline-block backdrop-blur-sm bg-card/30 rounded-2xl px-6 py-3 border border-primary/20">
+              <p className="font-heading font-bold text-sm tracking-wider bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                MAPA DO CATÓLICO
+              </p>
             </div>
             
-            <h1 className="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-primary leading-tight max-w-4xl mx-auto">
-              Entenda os 73 livros da Bíblia de forma simples e viva a transformação da Palavra em sua vida.
+            <h1 className="font-heading font-extrabold text-5xl md:text-6xl lg:text-7xl leading-tight max-w-5xl mx-auto">
+              <span className="bg-gradient-to-r from-primary via-chart-4 to-accent bg-clip-text text-transparent drop-shadow-[0_0_60px_rgba(124,58,237,0.3)]">
+                Entenda os 73 livros da Bíblia de forma simples
+              </span>{" "}
+              <span className="text-foreground">
+                e viva a transformação da Palavra em sua vida.
+              </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-foreground max-w-3xl mx-auto leading-relaxed">
-              Um jeito <span className="font-semibold">fácil e eficiente</span>, aprovado por{" "}
-              <span className="font-semibold">milhares de católicos</span>, para{" "}
-              <span className="font-semibold">aprender a Palavra de Deus</span> de forma simples, sem complicação, e que não consegue emendar a Bíblia.
+            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed">
+              Um jeito <span className="font-semibold text-primary">fácil e eficiente</span>, aprovado por{" "}
+              <span className="font-semibold text-primary">milhares de católicos</span>, para{" "}
+              <span className="font-semibold text-primary">aprender a Palavra de Deus</span> de forma simples, sem complicação, e que não consegue emendar a Bíblia.
             </p>
 
             <div className="py-8">
               <TestimonialCarousel testimonials={carouselTestimonials} />
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center flex-wrap">
               <CTAButton onClick={handleCTAClick} />
               <CTAButton variant="outline" onClick={() => console.log('Conheça clicked')}>
                 CONHEÇA
@@ -96,26 +105,26 @@ export default function Home() {
             </div>
 
             <div className="pt-8 flex justify-center">
-              <ChevronDown className="w-8 h-8 text-primary animate-bounce" />
+              <ChevronDown className="w-10 h-10 text-primary animate-bounce drop-shadow-[0_0_10px_rgba(124,58,237,0.5)]" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Video Testimonials Section */}
-      <section className="py-16 md:py-20 bg-background">
-        <div className="container max-w-6xl mx-auto px-4">
+      <section className="py-24 md:py-32 bg-gradient-to-b from-background via-muted/30 to-background">
+        <div className="container max-w-6xl mx-auto px-6">
           <SectionHeader 
             title="O que estão dizendo sobre o Mapa da Bíblia."
             subtitle="O Mapa da Bíblia é incrível e milhares de católicos concordam com isso."
           />
           
-          <div className="mt-12">
-            <div className="max-w-sm mx-auto bg-muted rounded-lg p-4">
+          <div className="mt-16">
+            <div className="max-w-sm mx-auto backdrop-blur-xl bg-gradient-to-br from-card/50 to-muted/30 rounded-3xl p-6 border border-primary/20 shadow-2xl">
               <img 
-                src="https://placehold.co/400x600/f0f0f0/0066FF?text=Video+Depoimento" 
+                src="https://placehold.co/400x600/1a1a2e/7c3aed?text=Video+Depoimento" 
                 alt="Vídeo depoimento" 
-                className="w-full rounded"
+                className="w-full rounded-2xl"
               />
             </div>
           </div>
@@ -123,70 +132,76 @@ export default function Home() {
       </section>
 
       {/* De Gênesis a Apocalipse */}
-      <section className="py-16 md:py-20 bg-muted">
-        <div className="container max-w-6xl mx-auto px-4">
-          <div className="text-center space-y-6 mb-12">
-            <ChevronDown className="w-8 h-8 text-primary mx-auto" />
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary">
-              De Gênesis a Apocalipse: <span className="text-foreground">conheça</span>{" "}
-              <span className="text-foreground">toda a Bíblia</span> através de{" "}
-              <span className="text-foreground">mapas didáticos</span> de todos os livros,{" "}
-              <span className="text-foreground">na visão católica.</span>
+      <section className="py-24 md:py-32 bg-gradient-to-br from-muted/50 via-background to-muted/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(124,58,237,0.1),transparent_50%)]"></div>
+        
+        <div className="container max-w-6xl mx-auto px-6 relative z-10">
+          <div className="text-center space-y-8 mb-16">
+            <div className="flex justify-center">
+              <Sparkles className="w-10 h-10 text-accent animate-pulse" />
+            </div>
+            <h2 className="font-heading font-bold text-4xl md:text-5xl max-w-4xl mx-auto leading-tight">
+              <span className="bg-gradient-to-r from-primary via-chart-4 to-accent bg-clip-text text-transparent">
+                De Gênesis a Apocalipse:
+              </span>{" "}
+              <span className="text-foreground">
+                conheça toda a Bíblia através de mapas didáticos de todos os livros, na visão católica.
+              </span>
             </h2>
           </div>
 
-          <div className="max-w-sm mx-auto">
-            <div className="bg-background rounded-lg p-4 shadow-md">
-              <img src={bibleMapImage} alt="Mapa da Bíblia" className="w-full rounded" />
+          <div className="max-w-2xl mx-auto">
+            <div className="backdrop-blur-xl bg-gradient-to-br from-card/60 to-background/40 rounded-3xl p-6 border-2 border-primary/20 shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:scale-[1.02]">
+              <img src={bibleMapImage} alt="Mapa da Bíblia" className="w-full rounded-2xl" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 md:py-20 bg-primary text-primary-foreground">
-        <div className="container max-w-4xl mx-auto px-4">
-          <div className="space-y-6 text-center md:text-left">
-            <p className="text-lg leading-relaxed">
-              O Mapa da Bíblia são resumos visuais da Bíblia, conforme a{" "}
-              <span className="font-semibold">tradição católica e a Bíblia Ave Maria</span>, 
-              recursos visuais elaborados para{" "}
-              <span className="font-semibold">simplificar e aprofundar a Palavra de Deus em sua totalidade</span>, 
-              apresentando os seus principais ensinamentos de cada livro e contextos.
-            </p>
-            
-            <p className="text-lg leading-relaxed">
-              Com o Mapa da Bíblia, você poderá se dedicar ao estudo diário da Bíblia com mais facilidade,{" "}
-              <span className="font-semibold">equipado com um guia eficaz</span> para navegar pelas páginas bíblicas e suas múltiplas dimensões.
-            </p>
-            
-            <p className="text-lg leading-relaxed">
-              Essa é a melhor forma de <span className="font-semibold">aprimorar seu conhecimento</span> bíblico, 
-              obtendo uma compreensão mais profunda da Palavra e{" "}
-              <span className="font-semibold">uma transformação espiritual profunda</span> ao mergulhar 
-              nos ensinamentos ricos da Sagrada Escritura.
-            </p>
-
-            <div className="pt-6 flex justify-center md:justify-start">
-              <WhatsAppButton />
+      {/* Benefits Section - Dark Futuristic */}
+      <section className="py-24 md:py-32 bg-gradient-to-br from-primary/95 via-primary to-chart-4/90 text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30"></div>
+        
+        <div className="container max-w-5xl mx-auto px-6 relative z-10">
+          <div className="backdrop-blur-sm bg-white/5 rounded-3xl p-10 md:p-16 border border-white/10 shadow-2xl">
+            <div className="space-y-8 text-center md:text-left">
+              <p className="text-xl leading-relaxed">
+                O Mapa da Bíblia são resumos visuais da Bíblia, conforme a{" "}
+                <span className="font-semibold text-accent">tradição católica e a Bíblia Ave Maria</span>, 
+                recursos visuais elaborados para{" "}
+                <span className="font-semibold text-accent">simplificar e aprofundar a Palavra de Deus em sua totalidade</span>, 
+                apresentando os seus principais ensinamentos de cada livro e contextos.
+              </p>
+              
+              <p className="text-xl leading-relaxed">
+                Com o Mapa da Bíblia, você poderá se dedicar ao estudo diário da Bíblia com mais facilidade,{" "}
+                <span className="font-semibold text-accent">equipado com um guia eficaz</span> para navegar pelas páginas bíblicas e suas múltiplas dimensões.
+              </p>
+              
+              <p className="text-xl leading-relaxed">
+                Essa é a melhor forma de <span className="font-semibold text-accent">aprimorar seu conhecimento</span> bíblico, 
+                obtendo uma compreensão mais profunda da Palavra e{" "}
+                <span className="font-semibold text-accent">uma transformação espiritual profunda</span> ao mergulhar 
+                nos ensinamentos ricos da Sagrada Escritura.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* José Marcos Testimonial */}
-      <section className="py-16 md:py-20 bg-muted">
-        <div className="container max-w-4xl mx-auto px-4">
-          <div className="bg-background rounded-lg p-6 md:p-8 shadow-sm">
-            <p className="text-lg md:text-xl text-foreground italic leading-relaxed mb-6">
+      <section className="py-24 md:py-32 bg-gradient-to-b from-muted/30 to-background">
+        <div className="container max-w-4xl mx-auto px-6">
+          <div className="backdrop-blur-xl bg-gradient-to-br from-card via-background to-muted/30 rounded-3xl p-10 md:p-12 border border-primary/20 shadow-2xl">
+            <p className="text-2xl md:text-3xl text-foreground italic leading-relaxed mb-8">
               "Me surpreendi com a clareza e profundidade que o material traz para o estudo da Bíblia Sagrada."
             </p>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-xl shadow-lg">
                 JM
               </div>
               <div>
-                <p className="font-semibold text-foreground">José Marcos</p>
+                <p className="font-semibold text-lg text-foreground">José Marcos</p>
               </div>
             </div>
           </div>
@@ -194,29 +209,36 @@ export default function Home() {
       </section>
 
       {/* Mapa dos 73 Livros */}
-      <section className="py-16 md:py-20 bg-background">
-        <div className="container max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary mb-6">
-              Simplificando sua jornada espiritual e fortalecendo sua conexão com Deus.
+      <section className="py-24 md:py-32 bg-background">
+        <div className="container max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-heading font-bold text-4xl md:text-5xl mb-8">
+              <span className="bg-gradient-to-r from-primary via-chart-4 to-accent bg-clip-text text-transparent">
+                Simplificando sua jornada espiritual
+              </span>{" "}
+              <span className="text-foreground">
+                e fortalecendo sua conexão com Deus.
+              </span>
             </h2>
             <div className="max-w-3xl mx-auto">
-              <img src={bibleMapImage} alt="Mapa dos 73 Livros" className="w-full rounded-lg shadow-md" />
+              <div className="backdrop-blur-xl bg-gradient-to-br from-card/60 to-muted/30 rounded-3xl p-6 border border-primary/20 shadow-2xl">
+                <img src={bibleMapImage} alt="Mapa dos 73 Livros" className="w-full rounded-2xl" />
+              </div>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-16">
-            <div>
-              <h3 className="font-heading font-bold text-2xl text-primary mb-6">
+          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto mt-20">
+            <div className="space-y-6">
+              <h3 className="font-heading font-bold text-3xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Mapa dos 73 Livros
               </h3>
-              <p className="text-foreground leading-relaxed mb-6">
-                Explore cada um dos <span className="font-semibold">73 livros da Bíblia</span> através de mapas didáticos que apresentam{" "}
-                <span className="font-semibold">resumos e elementos essenciais</span> que{" "}
-                <span className="font-semibold">facilitam o entendimento da Palavra de Deus.</span>
+              <p className="text-foreground/90 leading-relaxed text-lg">
+                Explore cada um dos <span className="font-semibold text-primary">73 livros da Bíblia</span> através de mapas didáticos que apresentam{" "}
+                <span className="font-semibold text-primary">resumos e elementos essenciais</span> que{" "}
+                <span className="font-semibold text-primary">facilitam o entendimento da Palavra de Deus.</span>
               </p>
-              <div className="space-y-3">
-                <p className="font-semibold text-foreground">Em cada livro, você terá:</p>
+              <div className="space-y-4 pt-4">
+                <p className="font-semibold text-foreground text-lg">Em cada livro, você terá:</p>
                 <FeatureList 
                   items={[
                     "Resumo Do Livro",
@@ -230,11 +252,11 @@ export default function Home() {
             </div>
 
             <div className="space-y-8">
-              <div className="bg-muted rounded-lg p-4">
+              <div className="backdrop-blur-sm bg-gradient-to-br from-muted/50 to-background/50 rounded-3xl p-6 border border-primary/10">
                 <img 
-                  src="https://placehold.co/500x300/f0f0f0/0066FF?text=Mapa+Tematico" 
+                  src="https://placehold.co/500x300/1a1a2e/7c3aed?text=Mapa+Tematico" 
                   alt="Mapa temático"
-                  className="w-full rounded"
+                  className="w-full rounded-2xl"
                 />
               </div>
             </div>
@@ -243,8 +265,8 @@ export default function Home() {
       </section>
 
       {/* Panorama da Bíblia */}
-      <section className="py-16 md:py-20 bg-muted">
-        <div className="container max-w-6xl mx-auto px-4">
+      <section className="py-24 md:py-32 bg-gradient-to-br from-muted/30 via-background to-muted/50">
+        <div className="container max-w-6xl mx-auto px-6">
           <FeatureSection 
             title="Panorama da Bíblia"
             description="Entenda como a Bíblia está organizada: suas divisões, seções e categorias literárias. Este guia visual transforma entre os livros e a mensagem central das Escrituras."
@@ -261,8 +283,8 @@ export default function Home() {
       </section>
 
       {/* Eventos Cronológicos */}
-      <section className="py-16 md:py-20 bg-background">
-        <div className="container max-w-6xl mx-auto px-4">
+      <section className="py-24 md:py-32 bg-background">
+        <div className="container max-w-6xl mx-auto px-6">
           <FeatureSection 
             title="Eventos Cronológicos"
             description="Compreenda a sequência dos principais acontecimentos bíblicos em ordem cronológica, facilitando a memorização da narrativa da salvação e sua conexão ao longo dos tempos."
@@ -278,8 +300,8 @@ export default function Home() {
       </section>
 
       {/* Registros da Fé */}
-      <section className="py-16 md:py-20 bg-muted">
-        <div className="container max-w-6xl mx-auto px-4">
+      <section className="py-24 md:py-32 bg-gradient-to-b from-muted/30 to-background">
+        <div className="container max-w-6xl mx-auto px-6">
           <FeatureSection 
             title="Registros da Fé"
             description="Um espaço dedicado para registrar insights, reflexões e aprendizados, ajudando a aplicar os ensinamentos bíblicos no seu dia a dia."
@@ -288,25 +310,25 @@ export default function Home() {
               "Versículos E Reflexões",
               "Aplicação Prática"
             ]}
-            image="https://placehold.co/600x400/f0f0f0/0066FF?text=Registros"
+            image="https://placehold.co/600x400/1a1a2e/7c3aed?text=Registros"
             imagePosition="right"
           />
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <CTAButton onClick={handleCTAClick} />
           </div>
         </div>
       </section>
 
       {/* Testimonials Grid */}
-      <section className="py-16 md:py-20 bg-background">
-        <div className="container max-w-6xl mx-auto px-4">
+      <section className="py-24 md:py-32 bg-background">
+        <div className="container max-w-6xl mx-auto px-6">
           <SectionHeader 
             title="Aprovado por +1.000 fiéis católicos."
             subtitle="Nossos mapas são incríveis e quem tem acesso concorda com isso."
           />
           
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div className="grid md:grid-cols-3 gap-8 mt-16">
             <TestimonialCard 
               name="Eduardo Mendes"
               text="Sempre achava difícil de entender a Bíblia, mas o Mapa da Bíblia me ajudou a enxergar tudo de forma clara e organizada. Agora, minha leitura tem muito mais sentido!"
@@ -324,38 +346,41 @@ export default function Home() {
       </section>
 
       {/* What You'll Receive */}
-      <section className="py-16 md:py-20 bg-muted">
-        <div className="container max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <div className="inline-block mb-4">
-              <img 
-                src="https://placehold.co/150x50/0066FF/FFFFFF?text=MAPA+DO+CATOLICO" 
-                alt="Logo" 
-                className="h-10"
-              />
+      <section className="py-24 md:py-32 bg-gradient-to-br from-muted/50 via-background to-muted/30">
+        <div className="container max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-6 backdrop-blur-sm bg-card/30 rounded-2xl px-6 py-3 border border-primary/20">
+              <p className="font-heading font-bold tracking-wider bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                MAPA DO CATÓLICO
+              </p>
             </div>
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary">
-              O que você receberá no Mapa da Bíblia?
+            <h2 className="font-heading font-bold text-4xl md:text-5xl mb-6">
+              <span className="bg-gradient-to-r from-primary via-chart-4 to-accent bg-clip-text text-transparent">
+                O que você receberá
+              </span>{" "}
+              <span className="text-foreground">
+                no Mapa da Bíblia?
+              </span>
             </h2>
-            <p className="text-lg text-muted-foreground mt-4">
-              São mais de 250 páginas <span className="font-semibold">exclusivas!</span>
+            <p className="text-xl text-muted-foreground mt-4">
+              São mais de 250 páginas <span className="font-semibold text-primary">exclusivas!</span>
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            <div className="space-y-6">
-              <div className="bg-background rounded-lg p-4">
+          <div className="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+            <div className="space-y-8">
+              <div className="backdrop-blur-xl bg-gradient-to-br from-card/60 to-background/40 rounded-3xl p-6 border border-primary/20 shadow-xl">
                 <img 
                   src={bibleMapImage} 
                   alt="Arquivos Digitais"
-                  className="w-full rounded"
+                  className="w-full rounded-2xl"
                 />
               </div>
               <div>
-                <h3 className="font-heading font-bold text-2xl text-primary mb-4">
+                <h3 className="font-heading font-bold text-3xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
                   Arquivos Digitais
                 </h3>
-                <p className="text-foreground leading-relaxed">
+                <p className="text-foreground/90 leading-relaxed text-lg">
                   Material em PDF para acessar no celular, tablet ou computador e estudar em qualquer lugar. 
                   Incluindo: Mapa dos 73 Livros, Eventos Cronológicos, Panorama Bíblico, Registros da Fé e 
                   muito mais! São mais de 250 páginas.
@@ -363,19 +388,19 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="space-y-6">
-              <div className="bg-background rounded-lg p-4">
+            <div className="space-y-8">
+              <div className="backdrop-blur-xl bg-gradient-to-br from-card/60 to-background/40 rounded-3xl p-6 border border-primary/20 shadow-xl">
                 <img 
-                  src="https://placehold.co/500x300/f0f0f0/0066FF?text=Area+de+Membros" 
+                  src="https://placehold.co/500x300/1a1a2e/7c3aed?text=Area+de+Membros" 
                   alt="Área de Membros"
-                  className="w-full rounded"
+                  className="w-full rounded-2xl"
                 />
               </div>
               <div>
-                <h3 className="font-heading font-bold text-2xl text-primary mb-4">
+                <h3 className="font-heading font-bold text-3xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
                   Área de Membros
                 </h3>
-                <p className="text-foreground leading-relaxed">
+                <p className="text-foreground/90 leading-relaxed text-lg">
                   Material exclusivo em nossa área de membros a qualquer momento e acesso vitalício, 
                   baixe quantas vezes você quiser.
                 </p>
@@ -386,57 +411,61 @@ export default function Home() {
       </section>
 
       {/* Bonuses */}
-      <section className="py-16 md:py-20 bg-background">
-        <div className="container max-w-6xl mx-auto px-4">
+      <section className="py-24 md:py-32 bg-background">
+        <div className="container max-w-6xl mx-auto px-6">
           <SectionHeader 
             title="Além Disso, Receba Esses Presentes Para Potencializar Seus Estudos De Fé."
           />
           
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
+          <div className="grid md:grid-cols-3 gap-10 mt-16">
             <BonusCard 
               title="Plano de Leitura"
               description="Plano de Leitura Bíblico de 1 ano, metas capítulo a capítulo para te incentivar a aprofundar seu estudo Bíblico e fortalecer sua intimidade com Deus, mesmo que você tenha pouco tempo na vida corrida."
-              image="https://placehold.co/250x250/f0f0f0/0066FF?text=Plano"
+              image="https://placehold.co/250x250/1a1a2e/7c3aed?text=Plano"
             />
             <BonusCard 
               title="Diário da Oração"
               description="Este planner é dedicado a aprofundar sua experiência com a Palavra de Deus através da Lectio Divina, aprofundando a leitura, meditação, oração e contemplação das Escrituras."
-              image="https://placehold.co/250x250/f0f0f0/0066FF?text=Diario"
+              image="https://placehold.co/250x250/1a1a2e/7c3aed?text=Diario"
             />
             <BonusCard 
               title="Versão Imprimível"
               description="Ao adquirir você recebe os arquivos em alta qualidade e as instruções para imprimir e encadernar seus mapas. Aproveite a praticidade do digital e a versatilidade da impressão, conforme sua preferência."
-              image="https://placehold.co/250x250/f0f0f0/0066FF?text=Imprimivel"
+              image="https://placehold.co/250x250/1a1a2e/7c3aed?text=Imprimivel"
             />
           </div>
         </div>
       </section>
 
       {/* Final CTA with Product */}
-      <section className="py-16 md:py-20 bg-muted">
-        <div className="container max-w-6xl mx-auto px-4">
-          <div className="text-center space-y-6 mb-12">
-            <ChevronDown className="w-8 h-8 text-primary mx-auto" />
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary">
-              Garanta agora o seu Mapa da Bíblia!
+      <section className="py-24 md:py-32 bg-gradient-to-br from-muted/30 via-background to-primary/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(124,58,237,0.1),transparent_70%)]"></div>
+        
+        <div className="container max-w-6xl mx-auto px-6 relative z-10">
+          <div className="text-center space-y-8 mb-16">
+            <Sparkles className="w-12 h-12 text-accent mx-auto animate-pulse" />
+            <h2 className="font-heading font-bold text-4xl md:text-5xl">
+              <span className="bg-gradient-to-r from-primary via-chart-4 to-accent bg-clip-text text-transparent">
+                Garanta agora o seu Mapa da Bíblia!
+              </span>
             </h2>
-            <p className="text-lg text-muted-foreground">
-              São mais de 250 páginas <span className="font-semibold">exclusivas</span> - de Gênesis a Apocalipse, 
+            <p className="text-xl text-muted-foreground">
+              São mais de 250 páginas <span className="font-semibold text-primary">exclusivas</span> - de Gênesis a Apocalipse, 
               conforme a tradição católica!
             </p>
           </div>
 
           <div className="max-w-2xl mx-auto">
-            <div className="bg-background rounded-lg p-6 border-2 border-primary">
-              <img src={bibleMapImage} alt="Mapa da Bíblia" className="w-full rounded-lg" />
+            <div className="backdrop-blur-xl bg-gradient-to-br from-card/60 to-background/40 rounded-3xl p-8 border-4 border-primary/30 shadow-2xl shadow-primary/20">
+              <img src={bibleMapImage} alt="Mapa da Bíblia" className="w-full rounded-2xl" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Pricing */}
-      <section className="py-16 md:py-20 bg-background">
-        <div className="container max-w-6xl mx-auto px-4">
+      <section className="py-24 md:py-32 bg-background">
+        <div className="container max-w-6xl mx-auto px-6">
           <PricingCard 
             originalPrice="R$ 97,00"
             currentPrice="R$ 37"
@@ -447,21 +476,21 @@ export default function Home() {
       </section>
 
       {/* Guarantee */}
-      <section className="py-16 md:py-20 bg-muted">
-        <div className="container max-w-6xl mx-auto px-4">
+      <section className="py-24 md:py-32 bg-gradient-to-b from-muted/30 to-background">
+        <div className="container max-w-6xl mx-auto px-6">
           <GuaranteeSection />
         </div>
       </section>
 
       {/* More Testimonials */}
-      <section className="py-16 md:py-20 bg-background">
-        <div className="container max-w-6xl mx-auto px-4">
+      <section className="py-24 md:py-32 bg-background">
+        <div className="container max-w-6xl mx-auto px-6">
           <SectionHeader 
             title="O que estão dizendo sobre o Mapa da Bíblia."
             subtitle="Cada pessoa que acessa, descobre uma nova profundidade na sua jornada espiritual. Você também pode experimentar essa mudança!"
           />
           
-          <div className="grid md:grid-cols-2 gap-6 mt-12 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 mt-16 max-w-4xl mx-auto">
             <TestimonialCard 
               name="Priscila Rocha"
               text="Sempre achava difícil de entender a Bíblia, mas o Mapa da Bíblia me ajudou a enxergar tudo de forma clara e organizada. Agora, minha leitura tem muito mais sentido!"
@@ -480,37 +509,37 @@ export default function Home() {
             />
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <CTAButton onClick={handleCTAClick} />
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-16 md:py-20 bg-muted">
-        <div className="container max-w-6xl mx-auto px-4">
+      <section className="py-24 md:py-32 bg-gradient-to-br from-muted/30 via-background to-muted/50">
+        <div className="container max-w-6xl mx-auto px-6">
           <FAQSection items={faqItems} />
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <CTAButton onClick={handleCTAClick} />
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-12">
-        <div className="container max-w-6xl mx-auto px-4">
-          <div className="text-center space-y-4">
-            <div className="inline-block">
-              <img 
-                src="https://placehold.co/200x60/FFFFFF/0066FF?text=MAPA+DO+CATOLICO" 
-                alt="Mapa do Católico" 
-                className="h-10 mx-auto"
-              />
+      <footer className="bg-gradient-to-br from-primary via-primary/95 to-chart-4 text-primary-foreground py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20"></div>
+        
+        <div className="container max-w-6xl mx-auto px-6 relative z-10">
+          <div className="text-center space-y-6">
+            <div className="inline-block backdrop-blur-sm bg-white/10 rounded-2xl px-8 py-4 border border-white/20">
+              <p className="font-heading font-bold text-xl tracking-wider">
+                MAPA DO CATÓLICO
+              </p>
             </div>
-            <p className="text-sm">
+            <p className="text-sm opacity-90">
               Este produto é desenvolvido por você e protegido por direitos autorais do Mapa do Católico.
             </p>
-            <p className="text-sm">
+            <p className="text-sm font-semibold">
               POLÍTICA DE PRIVACIDADE • TERMOS DE USO
             </p>
           </div>

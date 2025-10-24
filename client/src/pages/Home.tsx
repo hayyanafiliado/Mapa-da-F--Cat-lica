@@ -23,6 +23,7 @@ import mapaBooksImage from "@assets/1_1761335202543.png";
 import panoramaBibliaImage from "@assets/2_1761335666100.png";
 import eventosCronologicosImage from "@assets/3_1761335834929.png";
 import garantia30DiasImage from "@assets/30 dias garantia_1761337224351.png";
+import bonusSecretoImage from "@assets/bonus secreto_1761338915313.png";
 import { useState, useRef } from "react";
 
 export default function Home() {
@@ -521,6 +522,14 @@ export default function Home() {
 
           <Card className="bg-accent/10 border-accent/20">
             <CardHeader>
+              <div className="flex justify-center mb-4">
+                <img 
+                  src={bonusSecretoImage} 
+                  alt="Bônus Secreto" 
+                  className="h-32 md:h-40 w-auto"
+                  data-testid="img-bonus-secreto"
+                />
+              </div>
               <CardTitle className="flex items-center gap-3 text-xl text-accent">
                 <span className="text-2xl">🎁</span>
                 Bônus Exclusivo

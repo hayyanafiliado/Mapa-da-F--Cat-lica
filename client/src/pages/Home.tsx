@@ -13,6 +13,12 @@ import cronologiaImage from "@assets/Mapa da Fé Catolica (5)_1761328407487.png"
 import panoramaImage from "@assets/Mapa da Fé Catolica (6)_1761328410475.png";
 import brandLogo from "@assets/LOGO_-_Mapa_da_Fé_Catolica-removebg-preview_1761329417586.png";
 import fiveStars from "@assets/5 estrelas usuario_1761328558561.png";
+import fiveStarsRating from "@assets/5 estrelas usuario_1761331979855.png";
+import testimonial1 from "@assets/depoimentos catolicos_1761331979854.png";
+import testimonial2 from "@assets/depoimentos catolicos (1)_1761331979856.png";
+import testimonial3 from "@assets/depoimentos catolicos (2)_1761331979857.png";
+import testimonial4 from "@assets/depoimentos catolicos (3)_1761331979852.png";
+import testimonial5 from "@assets/depoimentos catolicos (4)_1761331979853.png";
 import { useState } from "react";
 
 export default function Home() {
@@ -204,72 +210,100 @@ export default function Home() {
 
       {/* 4.5. O que estão dizendo */}
       <section className="py-12 px-4 md:py-20 bg-muted/30">
-        <div className="container max-w-6xl mx-auto space-y-8">
+        <div className="container max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-4">
             <h2 className="font-heading font-bold text-2xl md:text-4xl text-foreground">
-              O que estão dizendo sobre O Mapa da Fé Católica
+              O que estão dizendo sobre <span className="text-primary">O Mapa da Fé Católica</span>
             </h2>
             <p className="text-lg md:text-xl text-foreground/80">
-              O Mapa da Fé Católica é incrível e milhares de católicos concordam com isso.
+              <span className="text-primary">O Mapa da Fé Católica</span> é incrível e milhares de católicos concordam com isso.
             </p>
+            <div className="flex justify-center pt-2">
+              <img 
+                src={fiveStarsRating} 
+                alt="4.96/5 de 2.464 usuários" 
+                className="h-10 md:h-12 w-auto"
+                data-testid="img-rating-stars"
+              />
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            <Card className="overflow-hidden hover-elevate" data-testid="testimonial-image-0">
-              <CardContent className="p-0">
-                <img 
-                  src={joaoImage} 
-                  alt="Mapa do Livro de João"
-                  className="w-full h-auto object-cover"
-                />
-              </CardContent>
-            </Card>
-            <Card className="overflow-hidden hover-elevate" data-testid="testimonial-image-1">
-              <CardContent className="p-0">
-                <img 
-                  src={matheusImage} 
-                  alt="Registros da Fé - São Matheus"
-                  className="w-full h-auto object-cover"
-                />
-              </CardContent>
-            </Card>
-            <Card className="overflow-hidden hover-elevate" data-testid="testimonial-image-2">
-              <CardContent className="p-0">
-                <img 
-                  src={genesisImage} 
-                  alt="Mapa do Livro de Gênesis"
-                  className="w-full h-auto object-cover"
-                />
-              </CardContent>
-            </Card>
-            <Card className="overflow-hidden hover-elevate" data-testid="testimonial-image-3">
-              <CardContent className="p-0">
-                <img 
-                  src={timelineAtImage} 
-                  alt="Linha do Tempo do Antigo Testamento"
-                  className="w-full h-auto object-cover"
-                />
-              </CardContent>
-            </Card>
-            <Card className="overflow-hidden hover-elevate" data-testid="testimonial-image-4">
-              <CardContent className="p-0">
-                <img 
-                  src={cronologiaImage} 
-                  alt="Cronologia de Jesus Cristo"
-                  className="w-full h-auto object-cover"
-                />
-              </CardContent>
-            </Card>
-            <Card className="overflow-hidden hover-elevate" data-testid="testimonial-image-5">
-              <CardContent className="p-0">
-                <img 
-                  src={panoramaImage} 
-                  alt="Panorama Bíblico"
-                  className="w-full h-auto object-cover"
-                />
-              </CardContent>
-            </Card>
-          </div>
+          <Carousel 
+            opts={{ align: "start", loop: true }}
+            className="w-full"
+            data-testid="carousel-testimonials"
+          >
+            <CarouselContent>
+              <CarouselItem>
+                <Card className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <img 
+                      src={testimonial1} 
+                      alt="Depoimento de cliente católico"
+                      className="w-full h-auto object-contain"
+                      data-testid="testimonial-slide-0"
+                    />
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+              <CarouselItem>
+                <Card className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <img 
+                      src={testimonial2} 
+                      alt="Depoimento de cliente católico"
+                      className="w-full h-auto object-contain"
+                      data-testid="testimonial-slide-1"
+                    />
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+              <CarouselItem>
+                <Card className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <img 
+                      src={testimonial3} 
+                      alt="Depoimento de cliente católico"
+                      className="w-full h-auto object-contain"
+                      data-testid="testimonial-slide-2"
+                    />
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+              <CarouselItem>
+                <Card className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <img 
+                      src={testimonial4} 
+                      alt="Depoimento de cliente católico"
+                      className="w-full h-auto object-contain"
+                      data-testid="testimonial-slide-3"
+                    />
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+              <CarouselItem>
+                <Card className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <img 
+                      src={testimonial5} 
+                      alt="Depoimento de cliente católico"
+                      className="w-full h-auto object-contain"
+                      data-testid="testimonial-slide-4"
+                    />
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious 
+              className="left-2 md:left-4" 
+              data-testid="button-testimonial-carousel-prev" 
+            />
+            <CarouselNext 
+              className="right-2 md:right-4" 
+              data-testid="button-testimonial-carousel-next" 
+            />
+          </Carousel>
         </div>
       </section>
 

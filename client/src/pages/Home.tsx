@@ -395,14 +395,6 @@ export default function Home() {
                 </div>
               </CardContent>
             </Card>
-            <Card className="hover-elevate" data-testid="card-solution-1">
-              <CardContent className="p-6 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Book className="w-5 h-5 text-primary" />
-                </div>
-                <p className="text-foreground leading-relaxed pt-1">Conecte Antigo e Novo Testamento com clareza.</p>
-              </CardContent>
-            </Card>
             <Card className="hover-elevate md:col-span-2" data-testid="card-solution-2">
               <CardContent className="p-6 space-y-4">
                 <div className="flex justify-center">

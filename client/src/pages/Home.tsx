@@ -90,7 +90,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       {/* 1. Headline */}
       <section className="py-12 px-4 md:py-20 bg-gradient-to-b from-primary/5 to-background">
         <div className="container max-w-4xl mx-auto text-center space-y-6">
@@ -191,10 +191,10 @@ export default function Home() {
           <Button 
             onClick={handleCTAClick} 
             size="lg" 
-            className="w-full text-lg h-14"
+            className="w-full text-base md:text-lg h-12 md:h-14"
             data-testid="button-cta-main"
           >
-            📥 QUERO MEU MAPA DA BÍBLIA AGORA
+            QUERO MEU MAPA DA BÍBLIA AGORA
           </Button>
         </div>
       </section>
@@ -374,7 +374,7 @@ export default function Home() {
                   size="lg"
                   data-testid="button-buy-basic"
                 >
-                  📘 QUERO O PLANO BÁSICO — R$ 27
+                  QUERO O PLANO BÁSICO — R$ 27
                 </Button>
               </CardContent>
             </Card>
@@ -416,7 +416,7 @@ export default function Home() {
                   size="lg"
                   data-testid="button-buy-premium"
                 >
-                  ✨ QUERO O PLANO PREMIUM — R$ 37
+                  QUERO O PLANO PREMIUM — R$ 37
                 </Button>
               </CardContent>
             </Card>
@@ -516,10 +516,10 @@ export default function Home() {
           <Button 
             onClick={handleCTAClick} 
             size="lg" 
-            className="w-full max-w-md mx-auto text-lg h-14"
+            className="w-full max-w-md mx-auto text-base md:text-lg h-12 md:h-14"
             data-testid="button-cta-final"
           >
-            📖 QUERO GARANTIR MEU MAPA DA BÍBLIA AGORA
+            QUERO GARANTIR MEU MAPA DA BÍBLIA AGORA
           </Button>
         </div>
       </section>

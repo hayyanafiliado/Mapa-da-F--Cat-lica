@@ -19,6 +19,7 @@ import testimonial2 from "@assets/depoimentos catolicos (1)_1761331979856.png";
 import testimonial3 from "@assets/depoimentos catolicos (2)_1761331979857.png";
 import testimonial4 from "@assets/depoimentos catolicos (3)_1761331979852.png";
 import testimonial5 from "@assets/depoimentos catolicos (4)_1761331979853.png";
+import mapaBooksImage from "@assets/1_1761335202543.png";
 import { useState } from "react";
 
 export default function Home() {
@@ -355,13 +356,49 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
+            <Card className="hover-elevate md:col-span-2" data-testid="card-solution-0">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex justify-center">
+                  <img 
+                    src={mapaBooksImage} 
+                    alt="Mapa dos 73 Livros da Bíblia" 
+                    className="w-full h-auto object-contain rounded-md"
+                    data-testid="img-mapa-books"
+                  />
+                </div>
+                <div className="space-y-3">
+                  <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground">
+                    Mapa dos 73 Livros Explore
+                  </h3>
+                  <p className="text-foreground/80 leading-relaxed">
+                    cada um dos 73 livros da Bíblia de forma clara e estruturada, com resumos e elementos essenciais que facilitam o entendimento da Palavra de Deus.
+                  </p>
+                  <div className="space-y-2 pt-2">
+                    <p className="text-foreground font-semibold">Em cada livro, você terá:</p>
+                    <ul className="space-y-2 pl-4">
+                      {[
+                        "Resumo do livro",
+                        "Simbologias e temas centrais",
+                        "Principais nomes",
+                        "Linha do tempo e eventos",
+                        "Versículos-chave"
+                      ].map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                          <span className="text-foreground/90">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
             {[
-              { icon: BookOpen, text: "Entenda o contexto de cada livro e sua mensagem central." },
               { icon: Book, text: "Conecte Antigo e Novo Testamento com clareza." },
               { icon: Heart, text: "Aplique os ensinamentos bíblicos na vida prática." },
               { icon: Clock, text: "Estude diariamente com motivação e propósito." }
             ].map((item, index) => (
-              <Card key={index} className="hover-elevate" data-testid={`card-solution-${index}`}>
+              <Card key={index + 1} className="hover-elevate" data-testid={`card-solution-${index + 1}`}>
                 <CardContent className="p-6 flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <item.icon className="w-5 h-5 text-primary" />

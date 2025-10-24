@@ -11,10 +11,13 @@ import genesisImage from "@assets/Mapa da Fé Catolica (3)_1761328401328.png";
 import timelineAtImage from "@assets/Mapa da Fé Catolica (4)_1761328404507.png";
 import cronologiaImage from "@assets/Mapa da Fé Catolica (5)_1761328407487.png";
 import panoramaImage from "@assets/Mapa da Fé Catolica (6)_1761328410475.png";
-import brandLogo from "@assets/LOGO - Mapa da Fé Catolica_1761328539259.png";
+import brandLogo from "@assets/LOGO_-_Mapa_da_Fé_Catolica-removebg-preview_1761329417586.png";
 import fiveStars from "@assets/5 estrelas usuario_1761328558561.png";
+import { useState } from "react";
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const handleCTAClick = () => {
     console.log('CTA clicked - redirecting to checkout');
   };
@@ -101,7 +104,7 @@ export default function Home() {
             <img 
               src={brandLogo} 
               alt="Mapa da Fé Católica" 
-              className="h-16 md:h-20 w-auto"
+              className="h-24 md:h-32 lg:h-40 w-auto"
               data-testid="img-brand-logo"
             />
           </div>
@@ -126,11 +129,20 @@ export default function Home() {
 
       {/* 3. Carrossel de Imagens */}
       <section className="py-8 px-4 md:py-12">
-        <div className="container max-w-3xl mx-auto">
+        <div className="container max-w-3xl mx-auto space-y-6">
           <Carousel 
             opts={{ align: "start", loop: true }}
             className="w-full"
             data-testid="carousel-product"
+            setApi={(api) => {
+              if (!api) return;
+              
+              setCurrentSlide(api.selectedScrollSnap());
+              
+              api.on('select', () => {
+                setCurrentSlide(api.selectedScrollSnap());
+              });
+            }}
           >
             <CarouselContent>
               {carouselImages.map((image, index) => (
@@ -148,9 +160,28 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-2 md:-left-12" data-testid="button-carousel-prev" />
-            <CarouselNext className="right-2 md:-right-12" data-testid="button-carousel-next" />
+            <CarouselPrevious 
+              className="left-2 md:left-4" 
+              data-testid="button-carousel-prev" 
+            />
+            <CarouselNext 
+              className="right-2 md:right-4" 
+              data-testid="button-carousel-next" 
+            />
           </Carousel>
+          
+          {/* Indicadores de pontos */}
+          <div className="flex items-center justify-center gap-2" data-testid="carousel-indicators">
+            {carouselImages.map((_, index) => (
+              <div
+                key={index}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  currentSlide === index ? 'bg-primary' : 'bg-muted-foreground/30'
+                }`}
+                data-testid={`carousel-dot-${index}`}
+              />
+            ))}
+          </div>
         </div>
       </section>
 

@@ -1,4 +1,4 @@
-import { Book, Check, X, Shield, Mail, BookOpen, Clock, Heart } from "lucide-react";
+import { Book, Check, X, Shield, Mail, BookOpen, Clock, Heart, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -77,15 +77,18 @@ export default function Home() {
   const testimonials = [
     {
       name: "Fernanda S.",
-      text: "O Mapa da Bíblia me ajudou a entender cada livro e sentir que Deus fala comigo em cada página."
+      text: "O Mapa da Fé Católica me ajudou a entender cada livro e sentir que Deus fala comigo em cada página.",
+      stars: 5
     },
     {
       name: "Ricardo S.",
-      text: "Antes eu lia por obrigação, agora estudo com prazer e fé."
+      text: "Antes eu lia por obrigação, agora estudo com prazer e fé.",
+      stars: 5
     },
     {
       name: "Eduardo M.",
-      text: "É impressionante como tudo faz sentido quando vemos a Bíblia organizada."
+      text: "É impressionante como tudo faz sentido quando vemos a Bíblia organizada.",
+      stars: 5
     }
   ];
 
@@ -122,7 +125,7 @@ export default function Home() {
             Deus fala conosco todos os dias, mas muitos não conseguem entender Sua mensagem.
           </p>
           <p className="text-lg md:text-xl text-foreground/80 leading-relaxed">
-            <span className="font-semibold text-primary">O Mapa da Bíblia</span> foi criado para ajudar você a ouvir, compreender e viver a Palavra — de forma clara, organizada e inspiradora.
+            <span className="font-semibold text-primary">O Mapa da Fé Católica</span> foi criado para ajudar você a ouvir, compreender e viver a Palavra — de forma clara, organizada e inspiradora.
           </p>
         </div>
       </section>
@@ -194,7 +197,7 @@ export default function Home() {
             className="w-full text-base md:text-lg h-12 md:h-14 bg-primary hover:bg-primary/90 text-primary-foreground border-primary-border animate-pulse-scale"
             data-testid="button-cta-main"
           >
-            QUERO MEU MAPA DA BÍBLIA AGORA
+            QUERO MEU MAPA DA FÉ CATÓLICA AGORA
           </Button>
         </div>
       </section>
@@ -226,7 +229,7 @@ export default function Home() {
 
           <p className="text-center text-lg md:text-xl text-foreground font-semibold pt-4">
             Não é falta de fé. É falta de estrutura e compreensão — e é exatamente isso que o{" "}
-            <span className="text-primary">Mapa da Bíblia</span> entrega.
+            <span className="text-primary">Mapa da Fé Católica</span> entrega.
           </p>
         </div>
       </section>
@@ -236,10 +239,10 @@ export default function Home() {
         <div className="container max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-4">
             <h2 className="font-heading font-bold text-2xl md:text-4xl text-foreground">
-              Como o <span className="text-primary">Mapa da Bíblia</span> transforma seu estudo
+              Como o <span className="text-primary">Mapa da Fé Católica</span> transforma seu estudo
             </h2>
             <p className="text-lg text-foreground/80">
-              O Mapa da Bíblia transforma o estudo das Escrituras em um caminho de entendimento e espiritualidade.
+              O Mapa da Fé Católica transforma o estudo das Escrituras em um caminho de entendimento e espiritualidade.
             </p>
             <p className="text-base text-muted-foreground">
               Cada mapa, resumo e linha do tempo foi criado com base na Bíblia Ave Maria e na tradição católica.
@@ -320,11 +323,11 @@ export default function Home() {
       <section className="py-12 px-4 md:py-20 bg-background">
         <div className="container max-w-6xl mx-auto space-y-8 overflow-x-hidden">
           <div className="text-center space-y-4 px-2">
-            <h2 className="font-heading font-bold text-xl md:text-4xl text-foreground">
+            <h2 className="font-heading font-bold text-2xl md:text-5xl text-foreground">
               Escolha seu plano
             </h2>
             <div className="flex justify-center">
-              <Badge variant="destructive" className="text-xs md:text-sm px-3 md:px-4 py-1.5 md:py-2">
+              <Badge variant="destructive" className="text-xs md:text-sm px-3 md:px-4 py-1.5 md:py-2 animate-pulse-scale">
                 Oferta especial de lançamento válida somente hoje
               </Badge>
             </div>
@@ -441,10 +444,17 @@ export default function Home() {
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="hover-elevate" data-testid={`card-testimonial-${index}`}>
                 <CardContent className="p-6 space-y-4">
+                  <div className="space-y-2">
+                    <p className="font-semibold text-primary">{testimonial.name}</p>
+                    <div className="flex gap-1">
+                      {Array.from({ length: testimonial.stars }).map((_, starIndex) => (
+                        <Star key={starIndex} className="w-4 h-4 fill-primary text-primary" />
+                      ))}
+                    </div>
+                  </div>
                   <p className="text-foreground/90 leading-relaxed italic">
                     "{testimonial.text}"
                   </p>
-                  <p className="font-semibold text-primary">— {testimonial.name}</p>
                 </CardContent>
               </Card>
             ))}
@@ -521,7 +531,7 @@ export default function Home() {
             className="w-full max-w-md mx-auto text-base md:text-lg h-12 md:h-14 bg-primary hover:bg-primary/90 text-primary-foreground border-primary-border animate-pulse-scale"
             data-testid="button-cta-final"
           >
-            QUERO GARANTIR MEU MAPA DA BÍBLIA AGORA
+            QUERO GARANTIR MEU MAPA DA FÉ CATÓLICA AGORA
           </Button>
         </div>
       </section>

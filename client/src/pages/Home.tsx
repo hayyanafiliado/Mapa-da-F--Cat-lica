@@ -202,6 +202,77 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 4.5. O que estão dizendo */}
+      <section className="py-12 px-4 md:py-20 bg-muted/30">
+        <div className="container max-w-6xl mx-auto space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="font-heading font-bold text-2xl md:text-4xl text-foreground">
+              O que estão dizendo sobre O Mapa da Fé Católica
+            </h2>
+            <p className="text-lg md:text-xl text-foreground/80">
+              O Mapa da Fé Católica é incrível e milhares de católicos concordam com isso.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            <Card className="overflow-hidden hover-elevate" data-testid="testimonial-image-0">
+              <CardContent className="p-0">
+                <img 
+                  src={joaoImage} 
+                  alt="Mapa do Livro de João"
+                  className="w-full h-auto object-cover"
+                />
+              </CardContent>
+            </Card>
+            <Card className="overflow-hidden hover-elevate" data-testid="testimonial-image-1">
+              <CardContent className="p-0">
+                <img 
+                  src={matheusImage} 
+                  alt="Registros da Fé - São Matheus"
+                  className="w-full h-auto object-cover"
+                />
+              </CardContent>
+            </Card>
+            <Card className="overflow-hidden hover-elevate" data-testid="testimonial-image-2">
+              <CardContent className="p-0">
+                <img 
+                  src={genesisImage} 
+                  alt="Mapa do Livro de Gênesis"
+                  className="w-full h-auto object-cover"
+                />
+              </CardContent>
+            </Card>
+            <Card className="overflow-hidden hover-elevate" data-testid="testimonial-image-3">
+              <CardContent className="p-0">
+                <img 
+                  src={timelineAtImage} 
+                  alt="Linha do Tempo do Antigo Testamento"
+                  className="w-full h-auto object-cover"
+                />
+              </CardContent>
+            </Card>
+            <Card className="overflow-hidden hover-elevate" data-testid="testimonial-image-4">
+              <CardContent className="p-0">
+                <img 
+                  src={cronologiaImage} 
+                  alt="Cronologia de Jesus Cristo"
+                  className="w-full h-auto object-cover"
+                />
+              </CardContent>
+            </Card>
+            <Card className="overflow-hidden hover-elevate" data-testid="testimonial-image-5">
+              <CardContent className="p-0">
+                <img 
+                  src={panoramaImage} 
+                  alt="Panorama Bíblico"
+                  className="w-full h-auto object-cover"
+                />
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* 5. Dores do cliente */}
       <section className="py-12 px-4 md:py-20 bg-muted/30">
         <div className="container max-w-3xl mx-auto space-y-8">

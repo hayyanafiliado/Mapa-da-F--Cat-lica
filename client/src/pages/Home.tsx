@@ -22,13 +22,14 @@ import testimonial5 from "@assets/depoimentos catolicos (4)_1761331979853.png";
 import mapaBooksImage from "@assets/1_1761335202543.png";
 import panoramaBibliaImage from "@assets/2_1761335666100.png";
 import eventosCronologicosImage from "@assets/3_1761335834929.png";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const pricingSectionRef = useRef<HTMLElement>(null);
 
   const handleCTAClick = () => {
-    console.log('CTA clicked - redirecting to checkout');
+    pricingSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const carouselImages = [
@@ -472,6 +473,17 @@ export default function Home() {
             A Palavra de Deus deixará de ser algo distante — e passará a ser{" "}
             <span className="font-semibold text-primary">luz e direção no seu dia a dia.</span>
           </p>
+
+          <div className="flex justify-center pt-8">
+            <Button 
+              onClick={handleCTAClick} 
+              size="lg" 
+              className="w-full max-w-md text-base md:text-lg h-12 md:h-14 bg-primary hover:bg-primary/90 text-primary-foreground border-primary-border animate-pulse-scale"
+              data-testid="button-cta-after-transform"
+            >
+              QUERO MEU MAPA DA FÉ CATÓLICA AGORA
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -521,7 +533,7 @@ export default function Home() {
       </section>
 
       {/* 8. Oferta - Planos */}
-      <section className="py-12 px-4 md:py-20 bg-background">
+      <section ref={pricingSectionRef} className="py-12 px-4 md:py-20 bg-background">
         <div className="container max-w-6xl mx-auto space-y-8 overflow-x-hidden">
           <div className="text-center space-y-4 px-2">
             <h2 className="font-heading font-bold text-2xl md:text-5xl text-foreground">

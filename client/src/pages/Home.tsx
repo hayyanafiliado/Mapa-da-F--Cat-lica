@@ -11,6 +11,8 @@ import genesisImage from "@assets/Mapa da Fé Catolica (3)_1761328401328.png";
 import timelineAtImage from "@assets/Mapa da Fé Catolica (4)_1761328404507.png";
 import cronologiaImage from "@assets/Mapa da Fé Catolica (5)_1761328407487.png";
 import panoramaImage from "@assets/Mapa da Fé Catolica (6)_1761328410475.png";
+import brandLogo from "@assets/LOGO - Mapa da Fé Catolica_1761328539259.png";
+import fiveStars from "@assets/5 estrelas usuario_1761328558561.png";
 
 export default function Home() {
   const handleCTAClick = () => {
@@ -89,8 +91,19 @@ export default function Home() {
       {/* 1. Headline */}
       <section className="py-12 px-4 md:py-20 bg-gradient-to-b from-primary/5 to-background">
         <div className="container max-w-4xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center justify-center">
-            <Book className="w-8 h-8 text-primary" />
+          <div className="flex flex-col items-center justify-center gap-4">
+            <img 
+              src={fiveStars} 
+              alt="5 estrelas - 4.96/5 de 2.464 usuários" 
+              className="h-12 md:h-14 w-auto"
+              data-testid="img-five-stars"
+            />
+            <img 
+              src={brandLogo} 
+              alt="Mapa da Fé Católica" 
+              className="h-16 md:h-20 w-auto"
+              data-testid="img-brand-logo"
+            />
           </div>
           <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl leading-tight text-foreground">
             Descubra o poder escondido nos 73 livros da Bíblia — e permita que a Palavra de Deus{" "}

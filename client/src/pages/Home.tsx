@@ -191,7 +191,7 @@ export default function Home() {
           <Button 
             onClick={handleCTAClick} 
             size="lg" 
-            className="w-full text-base md:text-lg h-12 md:h-14"
+            className="w-full text-base md:text-lg h-12 md:h-14 bg-accent hover:bg-accent/90 text-accent-foreground border-accent-border animate-pulse"
             data-testid="button-cta-main"
           >
             QUERO MEU MAPA DA BÍBLIA AGORA
@@ -370,7 +370,7 @@ export default function Home() {
                 </div>
                 <Button 
                   onClick={handleCTAClick}
-                  className="w-full"
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground border-accent-border animate-pulse"
                   size="lg"
                   data-testid="button-buy-basic"
                 >
@@ -412,7 +412,7 @@ export default function Home() {
                 </div>
                 <Button 
                   onClick={handleCTAClick}
-                  className="w-full"
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground border-accent-border animate-pulse"
                   size="lg"
                   data-testid="button-buy-premium"
                 >
@@ -516,7 +516,7 @@ export default function Home() {
           <Button 
             onClick={handleCTAClick} 
             size="lg" 
-            className="w-full max-w-md mx-auto text-base md:text-lg h-12 md:h-14"
+            className="w-full max-w-md mx-auto text-base md:text-lg h-12 md:h-14 bg-accent hover:bg-accent/90 text-accent-foreground border-accent-border animate-pulse"
             data-testid="button-cta-final"
           >
             QUERO GARANTIR MEU MAPA DA BÍBLIA AGORA

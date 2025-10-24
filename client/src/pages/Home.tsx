@@ -20,6 +20,7 @@ import testimonial3 from "@assets/depoimentos catolicos (2)_1761331979857.png";
 import testimonial4 from "@assets/depoimentos catolicos (3)_1761331979852.png";
 import testimonial5 from "@assets/depoimentos catolicos (4)_1761331979853.png";
 import mapaBooksImage from "@assets/1_1761335202543.png";
+import panoramaBibliaImage from "@assets/2_1761335666100.png";
 import { useState } from "react";
 
 export default function Home() {
@@ -395,8 +396,7 @@ export default function Home() {
             </Card>
             {[
               { icon: Book, text: "Conecte Antigo e Novo Testamento com clareza." },
-              { icon: Heart, text: "Aplique os ensinamentos bíblicos na vida prática." },
-              { icon: Clock, text: "Estude diariamente com motivação e propósito." }
+              { icon: Heart, text: "Aplique os ensinamentos bíblicos na vida prática." }
             ].map((item, index) => (
               <Card key={index + 1} className="hover-elevate" data-testid={`card-solution-${index + 1}`}>
                 <CardContent className="p-6 flex items-start gap-4">
@@ -407,6 +407,42 @@ export default function Home() {
                 </CardContent>
               </Card>
             ))}
+            <Card className="hover-elevate md:col-span-2" data-testid="card-solution-3">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex justify-center">
+                  <img 
+                    src={panoramaBibliaImage} 
+                    alt="Panorama da Bíblia" 
+                    className="w-full h-auto object-contain rounded-md"
+                    data-testid="img-panorama-biblia"
+                  />
+                </div>
+                <div className="space-y-3">
+                  <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground">
+                    Panorama da Bíblia
+                  </h3>
+                  <p className="text-foreground/80 leading-relaxed">
+                    Veja como a Bíblia se organiza em cada parte da história da salvação. Descubra suas divisões, seções e gêneros literários e entenda como todos os livros se conectam para revelar a mensagem central de Deus.
+                  </p>
+                  <div className="space-y-2 pt-2">
+                    <p className="text-foreground font-semibold">Conteúdo:</p>
+                    <ul className="space-y-2 pl-4">
+                      {[
+                        "Antigo e Novo Testamento",
+                        "Seções e Livros",
+                        "Gêneros Literários",
+                        "Tabela Periódica da Bíblia"
+                      ].map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                          <span className="text-foreground/90">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           <p className="text-center text-lg text-foreground/90 pt-4">

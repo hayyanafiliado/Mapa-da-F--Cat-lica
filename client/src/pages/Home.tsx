@@ -570,7 +570,7 @@ export default function Home() {
                     >
                       <div className="flex-shrink-0 mt-1">
                         {feature.included ? (
-                          <Check className="w-5 h-5 text-primary" />
+                          <Check className="w-5 h-5 text-primary led-check" />
                         ) : (
                           <X className="w-5 h-5 text-muted-foreground" />
                         )}
@@ -620,7 +620,7 @@ export default function Home() {
                       data-testid={`feature-premium-${index}`}
                     >
                       <div className="flex-shrink-0 mt-1">
-                        <Check className="w-5 h-5 text-primary" />
+                        <Check className="w-5 h-5 text-primary led-check" />
                       </div>
                       <div className="flex-1">
                         <p className="text-foreground">{feature.name}</p>
@@ -661,7 +661,7 @@ export default function Home() {
                     <p className="font-semibold text-primary">{testimonial.name}</p>
                     <div className="flex gap-1">
                       {Array.from({ length: testimonial.stars }).map((_, starIndex) => (
-                        <Star key={starIndex} className="w-4 h-4 fill-primary text-primary" />
+                        <Star key={starIndex} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                       ))}
                     </div>
                   </div>
@@ -741,7 +741,7 @@ export default function Home() {
           <Button 
             onClick={handleCTAClick} 
             size="lg" 
-            className="w-full max-w-md mx-auto text-base md:text-lg h-12 md:h-14 bg-primary hover:bg-primary/90 text-primary-foreground border-primary-border animate-pulse-scale"
+            className="w-full max-w-md mx-auto text-sm md:text-base h-14 md:h-16 bg-primary hover:bg-primary/90 text-primary-foreground border-primary-border animate-pulse-scale px-4"
             data-testid="button-cta-final"
           >
             QUERO GARANTIR MEU MAPA DA FÉ CATÓLICA AGORA
@@ -755,7 +755,7 @@ export default function Home() {
           <div className="text-center space-y-6">
             <div className="flex items-center justify-center gap-2 text-foreground">
               <Book className="w-6 h-6" />
-              <span className="font-heading font-bold text-xl">Mapa do Católico</span>
+              <span className="font-heading font-bold text-xl">Mapa da Fé Católica</span>
             </div>
             
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
@@ -774,7 +774,7 @@ export default function Home() {
             </div>
 
             <p className="text-sm text-muted-foreground">
-              © 2025 Mapa do Católico — Todos os direitos reservados.
+              © 2025 Mapa da Fé Católica — Todos os direitos reservados.
             </p>
           </div>
         </div>

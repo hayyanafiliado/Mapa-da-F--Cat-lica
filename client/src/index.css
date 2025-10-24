@@ -347,4 +347,18 @@
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
   }
+
+  /* LED Glowing Effect for Checkmarks */
+  @keyframes led-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 2px currentColor) drop-shadow(0 0 4px currentColor);
+    }
+    50% {
+      filter: drop-shadow(0 0 4px currentColor) drop-shadow(0 0 8px currentColor) drop-shadow(0 0 12px currentColor);
+    }
+  }
+
+  .led-check {
+    animation: led-glow 2s ease-in-out infinite;
+  }
 }

@@ -361,4 +361,18 @@
   .led-check {
     animation: led-glow 2s ease-in-out infinite;
   }
+
+  /* LED Glowing Effect for Red X marks */
+  @keyframes led-glow-red {
+    0%, 100% {
+      filter: drop-shadow(0 0 2px #ef4444) drop-shadow(0 0 4px #ef4444);
+    }
+    50% {
+      filter: drop-shadow(0 0 4px #ef4444) drop-shadow(0 0 8px #ef4444) drop-shadow(0 0 12px #ef4444);
+    }
+  }
+
+  .led-x-red {
+    animation: led-glow-red 2s ease-in-out infinite;
+  }
 }

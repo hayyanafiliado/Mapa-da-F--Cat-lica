@@ -3,11 +3,29 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import logoImage from "@assets/Mapa da Fé Catolica_1761328374413.png";
+import joaoImage from "@assets/Mapa da Fé Catolica (1)_1761328388197.png";
+import matheusImage from "@assets/Mapa da Fé Catolica (2)_1761328396544.png";
+import genesisImage from "@assets/Mapa da Fé Catolica (3)_1761328401328.png";
+import timelineAtImage from "@assets/Mapa da Fé Catolica (4)_1761328404507.png";
+import cronologiaImage from "@assets/Mapa da Fé Catolica (5)_1761328407487.png";
+import panoramaImage from "@assets/Mapa da Fé Catolica (6)_1761328410475.png";
 
 export default function Home() {
   const handleCTAClick = () => {
     console.log('CTA clicked - redirecting to checkout');
   };
+
+  const carouselImages = [
+    { src: logoImage, alt: "Mapa da Fé Católica - Logo" },
+    { src: joaoImage, alt: "Mapa do Livro de João" },
+    { src: matheusImage, alt: "Registros da Fé - São Matheus" },
+    { src: genesisImage, alt: "Mapa do Livro de Gênesis" },
+    { src: timelineAtImage, alt: "Linha do Tempo do Antigo Testamento" },
+    { src: cronologiaImage, alt: "Cronologia de Jesus Cristo" },
+    { src: panoramaImage, alt: "Panorama Bíblico" },
+  ];
 
   const basicFeatures = [
     { name: "Mapa dos 73 Livros", included: true },
@@ -93,17 +111,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Vídeo ou imagem */}
+      {/* 3. Carrossel de Imagens */}
       <section className="py-8 px-4 md:py-12">
-        <div className="container max-w-2xl mx-auto">
-          <Card className="overflow-hidden">
-            <div className="aspect-video bg-muted flex items-center justify-center">
-              <div className="text-center space-y-4 p-8">
-                <BookOpen className="w-16 h-16 mx-auto text-primary" />
-                <p className="text-muted-foreground">Vídeo ou imagem do produto</p>
-              </div>
-            </div>
-          </Card>
+        <div className="container max-w-3xl mx-auto">
+          <Carousel 
+            opts={{ align: "start", loop: true }}
+            className="w-full"
+            data-testid="carousel-product"
+          >
+            <CarouselContent>
+              {carouselImages.map((image, index) => (
+                <CarouselItem key={index}>
+                  <Card className="overflow-hidden">
+                    <CardContent className="p-0">
+                      <img 
+                        src={image.src} 
+                        alt={image.alt}
+                        className="w-full h-auto object-contain"
+                        data-testid={`carousel-image-${index}`}
+                      />
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2 md:-left-12" data-testid="button-carousel-prev" />
+            <CarouselNext className="right-2 md:-right-12" data-testid="button-carousel-next" />
+          </Carousel>
         </div>
       </section>
 

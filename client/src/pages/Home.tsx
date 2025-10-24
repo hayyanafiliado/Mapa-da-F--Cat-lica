@@ -545,9 +545,9 @@ export default function Home() {
       {/* 8. Oferta - Planos */}
       <section ref={pricingSectionRef} className="py-16 px-4 md:py-24 bg-gradient-to-b from-primary/5 via-background to-primary/5">
         <div className="container max-w-6xl mx-auto space-y-10 overflow-x-hidden">
-          <div className="text-center space-y-6 px-2">
+          <div className="text-center space-y-6 px-4">
             <h2 className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-foreground leading-tight">
-              ✨ Escolha seu plano ✨
+              Escolha seu plano
             </h2>
             <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto">
               Invista na sua jornada espiritual e transforme seu estudo da Palavra de Deus
@@ -559,7 +559,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto px-2">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto px-4">
             {/* Plano Básico */}
             <Card data-testid="card-pricing-basic">
               <CardHeader className="text-center space-y-4 pb-6">
@@ -576,7 +576,10 @@ export default function Home() {
                   <div className="text-base font-semibold text-foreground">
                     por
                   </div>
-                  <div className="text-5xl font-bold text-primary">APENAS R$ 17</div>
+                  <div className="space-y-1">
+                    <div className="text-2xl font-bold text-primary">APENAS</div>
+                    <div className="text-5xl font-bold text-primary">R$ 17</div>
+                  </div>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -633,7 +636,10 @@ export default function Home() {
                   <div className="text-base font-semibold text-foreground">
                     por
                   </div>
-                  <div className="text-5xl font-bold text-primary">APENAS R$ 27</div>
+                  <div className="space-y-1">
+                    <div className="text-2xl font-bold text-primary">APENAS</div>
+                    <div className="text-5xl font-bold text-primary">R$ 27</div>
+                  </div>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">

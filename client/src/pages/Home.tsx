@@ -21,6 +21,7 @@ import testimonial4 from "@assets/depoimentos catolicos (3)_1761331979852.png";
 import testimonial5 from "@assets/depoimentos catolicos (4)_1761331979853.png";
 import mapaBooksImage from "@assets/1_1761335202543.png";
 import panoramaBibliaImage from "@assets/2_1761335666100.png";
+import eventosCronologicosImage from "@assets/3_1761335834929.png";
 import { useState } from "react";
 
 export default function Home() {
@@ -394,19 +395,49 @@ export default function Home() {
                 </div>
               </CardContent>
             </Card>
-            {[
-              { icon: Book, text: "Conecte Antigo e Novo Testamento com clareza." },
-              { icon: Heart, text: "Aplique os ensinamentos bíblicos na vida prática." }
-            ].map((item, index) => (
-              <Card key={index + 1} className="hover-elevate" data-testid={`card-solution-${index + 1}`}>
-                <CardContent className="p-6 flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-5 h-5 text-primary" />
+            <Card className="hover-elevate" data-testid="card-solution-1">
+              <CardContent className="p-6 flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Book className="w-5 h-5 text-primary" />
+                </div>
+                <p className="text-foreground leading-relaxed pt-1">Conecte Antigo e Novo Testamento com clareza.</p>
+              </CardContent>
+            </Card>
+            <Card className="hover-elevate md:col-span-2" data-testid="card-solution-2">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex justify-center">
+                  <img 
+                    src={eventosCronologicosImage} 
+                    alt="Eventos Cronológicos" 
+                    className="w-full h-auto object-contain rounded-md"
+                    data-testid="img-eventos-cronologicos"
+                  />
+                </div>
+                <div className="space-y-3">
+                  <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground">
+                    Eventos Cronológicos
+                  </h3>
+                  <p className="text-foreground/80 leading-relaxed">
+                    Entenda a ordem dos principais acontecimentos da Bíblia e veja como a história da salvação se desenrola ao longo do tempo. Descubra as conexões entre os eventos e o contexto histórico que une toda a narrativa sagrada.
+                  </p>
+                  <div className="space-y-2 pt-2">
+                    <p className="text-foreground font-semibold">Conteúdo:</p>
+                    <ul className="space-y-2 pl-4">
+                      {[
+                        "Linha do Tempo Bíblica",
+                        "Conexões Entre Eventos",
+                        "Contexto Histórico"
+                      ].map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                          <span className="text-foreground/90">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="text-foreground leading-relaxed pt-1">{item.text}</p>
-                </CardContent>
-              </Card>
-            ))}
+                </div>
+              </CardContent>
+            </Card>
             <Card className="hover-elevate md:col-span-2" data-testid="card-solution-3">
               <CardContent className="p-6 space-y-4">
                 <div className="flex justify-center">

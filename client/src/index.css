@@ -348,18 +348,18 @@
     inset: -1px;
   }
 
-  /* LED Glowing Effect for Checkmarks */
-  @keyframes led-glow {
+  /* LED Glowing Effect for Green Checkmarks */
+  @keyframes led-glow-green {
     0%, 100% {
-      filter: drop-shadow(0 0 2px currentColor) drop-shadow(0 0 4px currentColor);
+      filter: drop-shadow(0 0 2px #22c55e) drop-shadow(0 0 4px #22c55e);
     }
     50% {
-      filter: drop-shadow(0 0 4px currentColor) drop-shadow(0 0 8px currentColor) drop-shadow(0 0 12px currentColor);
+      filter: drop-shadow(0 0 4px #22c55e) drop-shadow(0 0 8px #22c55e) drop-shadow(0 0 12px #22c55e);
     }
   }
 
   .led-check {
-    animation: led-glow 2s ease-in-out infinite;
+    animation: led-glow-green 2s ease-in-out infinite;
   }
 
   /* LED Glowing Effect for Red X marks */

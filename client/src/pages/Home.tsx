@@ -22,6 +22,7 @@ import testimonial5 from "@assets/depoimentos catolicos (4)_1761331979853.png";
 import mapaBooksImage from "@assets/1_1761335202543.png";
 import panoramaBibliaImage from "@assets/2_1761335666100.png";
 import eventosCronologicosImage from "@assets/3_1761335834929.png";
+import garantia30DiasImage from "@assets/30 dias garantia_1761337224351.png";
 import { useState, useRef } from "react";
 
 export default function Home() {
@@ -560,7 +561,13 @@ export default function Home() {
                   </CardDescription>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-5xl font-bold text-primary">R$ 17</div>
+                  <div className="text-lg text-muted-foreground">
+                    De <span className="line-through text-red-500 font-semibold">R$ 47,00</span>
+                  </div>
+                  <div className="text-base font-semibold text-foreground">
+                    por
+                  </div>
+                  <div className="text-5xl font-bold text-primary">APENAS R$ 17</div>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -573,7 +580,7 @@ export default function Home() {
                     >
                       <div className="flex-shrink-0 mt-1">
                         {feature.included ? (
-                          <Check className="w-5 h-5 text-primary led-check" />
+                          <Check className="w-5 h-5 text-green-500 led-check" />
                         ) : (
                           <X className="w-5 h-5 text-red-500 led-x-red" />
                         )}
@@ -611,7 +618,13 @@ export default function Home() {
                   </CardDescription>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-5xl font-bold text-primary">R$ 27</div>
+                  <div className="text-lg text-muted-foreground">
+                    De <span className="line-through text-red-500 font-semibold">R$ 97,00</span>
+                  </div>
+                  <div className="text-base font-semibold text-foreground">
+                    por
+                  </div>
+                  <div className="text-5xl font-bold text-primary">APENAS R$ 27</div>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -623,7 +636,7 @@ export default function Home() {
                       data-testid={`feature-premium-${index}`}
                     >
                       <div className="flex-shrink-0 mt-1">
-                        <Check className="w-5 h-5 text-primary led-check" />
+                        <Check className="w-5 h-5 text-green-500 led-check" />
                       </div>
                       <div className="flex-1">
                         <p className="text-foreground">{feature.name}</p>
@@ -684,9 +697,12 @@ export default function Home() {
           <Card className="border-2 border-primary/30 hover-elevate">
             <CardContent className="p-8 md:p-12 text-center space-y-6">
               <div className="flex justify-center">
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Shield className="w-10 h-10 text-primary" />
-                </div>
+                <img 
+                  src={garantia30DiasImage} 
+                  alt="30 Dias de Garantia" 
+                  className="h-24 md:h-32 w-auto"
+                  data-testid="img-garantia-30-dias"
+                />
               </div>
               <h2 className="font-heading font-bold text-2xl md:text-3xl text-foreground">
                 🛡️ Garantia de 30 Dias

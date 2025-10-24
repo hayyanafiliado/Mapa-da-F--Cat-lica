@@ -191,7 +191,7 @@ export default function Home() {
           <Button 
             onClick={handleCTAClick} 
             size="lg" 
-            className="w-full text-base md:text-lg h-12 md:h-14 bg-accent hover:bg-accent/90 text-accent-foreground border-accent-border animate-pulse"
+            className="w-full text-base md:text-lg h-12 md:h-14 bg-primary hover:bg-primary/90 text-primary-foreground border-primary-border animate-pulse-scale"
             data-testid="button-cta-main"
           >
             QUERO MEU MAPA DA BÍBLIA AGORA
@@ -318,17 +318,19 @@ export default function Home() {
 
       {/* 8. Oferta - Planos */}
       <section className="py-12 px-4 md:py-20 bg-background">
-        <div className="container max-w-6xl mx-auto space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="font-heading font-bold text-2xl md:text-4xl text-foreground">
+        <div className="container max-w-6xl mx-auto space-y-8 overflow-x-hidden">
+          <div className="text-center space-y-4 px-2">
+            <h2 className="font-heading font-bold text-xl md:text-4xl text-foreground">
               Escolha seu plano
             </h2>
-            <Badge variant="destructive" className="text-sm px-4 py-2">
-              🕒 Oferta especial de lançamento válida somente hoje
-            </Badge>
+            <div className="flex justify-center">
+              <Badge variant="destructive" className="text-xs md:text-sm px-3 md:px-4 py-1.5 md:py-2">
+                Oferta especial de lançamento válida somente hoje
+              </Badge>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto px-2">
             {/* Plano Básico */}
             <Card data-testid="card-pricing-basic">
               <CardHeader className="text-center space-y-4 pb-6">
@@ -339,7 +341,7 @@ export default function Home() {
                   </CardDescription>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-5xl font-bold text-primary">R$ 27</div>
+                  <div className="text-5xl font-bold text-primary">R$ 17</div>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -370,11 +372,11 @@ export default function Home() {
                 </div>
                 <Button 
                   onClick={handleCTAClick}
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground border-accent-border animate-pulse"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground border-primary-border animate-pulse-scale"
                   size="lg"
                   data-testid="button-buy-basic"
                 >
-                  QUERO O PLANO BÁSICO — R$ 27
+                  QUERO O PLANO BÁSICO — R$ 17
                 </Button>
               </CardContent>
             </Card>
@@ -390,7 +392,7 @@ export default function Home() {
                   </CardDescription>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-5xl font-bold text-primary">R$ 37</div>
+                  <div className="text-5xl font-bold text-primary">R$ 27</div>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -412,11 +414,11 @@ export default function Home() {
                 </div>
                 <Button 
                   onClick={handleCTAClick}
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground border-accent-border animate-pulse"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground border-primary-border animate-pulse-scale"
                   size="lg"
                   data-testid="button-buy-premium"
                 >
-                  QUERO O PLANO PREMIUM — R$ 37
+                  QUERO O PLANO PREMIUM — R$ 27
                 </Button>
               </CardContent>
             </Card>
@@ -516,7 +518,7 @@ export default function Home() {
           <Button 
             onClick={handleCTAClick} 
             size="lg" 
-            className="w-full max-w-md mx-auto text-base md:text-lg h-12 md:h-14 bg-accent hover:bg-accent/90 text-accent-foreground border-accent-border animate-pulse"
+            className="w-full max-w-md mx-auto text-base md:text-lg h-12 md:h-14 bg-primary hover:bg-primary/90 text-primary-foreground border-primary-border animate-pulse-scale"
             data-testid="button-cta-final"
           >
             QUERO GARANTIR MEU MAPA DA BÍBLIA AGORA

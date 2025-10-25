@@ -34,12 +34,44 @@ import panoramaBibliaImage from "@assets/2_1761335666100.png";
 import eventosCronologicosImage from "@assets/3_1761335834929.png";
 import garantia30DiasImage from "@assets/30 dias garantia_1761337224351.png";
 import bonusSecretoImage from "@assets/bonus secreto_1761338915313.png";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useToast } from "@/hooks/use-toast";
+
+const brazilianNames = [
+  "Maria Silva", "João Santos", "Ana Costa", "Pedro Oliveira", "Juliana Souza",
+  "Carlos Pereira", "Fernanda Lima", "Rafael Alves", "Beatriz Rocha", "Lucas Fernandes",
+  "Camila Rodrigues", "Gabriel Martins", "Patricia Gomes", "Marcos Ribeiro", "Amanda Carvalho",
+  "Bruno Barbosa", "Larissa Araújo", "Felipe Dias", "Isabela Correia", "Thiago Moreira",
+  "Renata Cardoso", "Diego Ferreira", "Aline Teixeira", "Vinicius Mendes", "Tatiana Ramos"
+];
+
+const timeDescriptions = [
+  "agora mesmo", "há 1 minuto", "há 2 minutos", "há 3 minutos", "há 5 minutos",
+  "há 7 minutos", "há 10 minutos", "há 12 minutos", "há 15 minutos"
+];
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showDiscountPopup, setShowDiscountPopup] = useState(false);
   const pricingSectionRef = useRef<HTMLElement>(null);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const showPurchaseNotification = () => {
+      const randomName = brazilianNames[Math.floor(Math.random() * brazilianNames.length)];
+      const randomTime = timeDescriptions[Math.floor(Math.random() * timeDescriptions.length)];
+      
+      toast({
+        title: "🎉 Nova compra realizada!",
+        description: `${randomName} adquiriu o Mapa da Fé Católica ${randomTime}`,
+        duration: 4000,
+      });
+    };
+
+    const interval = setInterval(showPurchaseNotification, 5000);
+
+    return () => clearInterval(interval);
+  }, [toast]);
 
   const handleCTAClick = () => {
     pricingSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -603,7 +635,7 @@ export default function Home() {
                   </div>
                   <div className="space-y-1">
                     <div className="text-2xl font-bold text-primary">APENAS</div>
-                    <div className="text-5xl font-bold text-primary">R$ 17</div>
+                    <div className="text-5xl font-bold text-primary">R$ 10</div>
                   </div>
                 </div>
               </CardHeader>
@@ -639,7 +671,7 @@ export default function Home() {
                   size="lg"
                   data-testid="button-buy-basic"
                 >
-                  QUERO O PLANO BÁSICO — R$ 17
+                  QUERO O PLANO BÁSICO — R$ 10
                 </Button>
               </CardContent>
             </Card>
@@ -863,10 +895,10 @@ export default function Home() {
                   De <span className="line-through text-red-500 font-semibold">R$ 27,00</span> por apenas
                 </div>
                 <div className="text-4xl font-bold bg-gradient-to-r from-primary via-chart-4 to-accent bg-clip-text text-transparent">
-                  R$ 19,90
+                  R$ 22,90
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Economia de R$ 7,10!
+                  Economia de R$ 4,10!
                 </p>
               </div>
               
@@ -894,14 +926,14 @@ export default function Home() {
               className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground text-sm font-bold"
               data-testid="button-accept-premium-offer"
             >
-              QUERO O PREMIUM POR R$ 19,90
+              QUERO O PREMIUM POR R$ 22,90
             </AlertDialogAction>
             <AlertDialogCancel
               onClick={handleDeclineOffer}
               className="w-full text-xs"
               data-testid="button-decline-offer"
             >
-              Não, prefiro o básico por R$ 17
+              Não, prefiro o básico por R$ 10
             </AlertDialogCancel>
           </AlertDialogFooter>
         </AlertDialogContent>

@@ -45,11 +45,6 @@ const brazilianNames = [
   "Renata Cardoso", "Diego Ferreira", "Aline Teixeira", "Vinicius Mendes", "Tatiana Ramos"
 ];
 
-const timeDescriptions = [
-  "agora mesmo", "há 1 minuto", "há 2 minutos", "há 3 minutos", "há 5 minutos",
-  "há 7 minutos", "há 10 minutos", "há 12 minutos", "há 15 minutos"
-];
-
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showDiscountPopup, setShowDiscountPopup] = useState(false);
@@ -59,11 +54,10 @@ export default function Home() {
   useEffect(() => {
     const showPurchaseNotification = () => {
       const randomName = brazilianNames[Math.floor(Math.random() * brazilianNames.length)];
-      const randomTime = timeDescriptions[Math.floor(Math.random() * timeDescriptions.length)];
       
       toast({
         title: "🎉 Nova compra realizada!",
-        description: `${randomName} adquiriu o Mapa da Fé Católica ${randomTime}`,
+        description: `${randomName} acabou de comprar`,
         duration: 4000,
         variant: "success",
       });

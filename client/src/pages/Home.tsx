@@ -601,46 +601,46 @@ export default function Home() {
       </section>
 
       {/* 8. Oferta - Planos */}
-      <section ref={pricingSectionRef} className="py-16 px-4 md:py-24 bg-gradient-to-b from-primary/5 via-background to-primary/5">
-        <div className="container max-w-6xl mx-auto space-y-10 overflow-x-hidden">
-          <div className="text-center space-y-6 px-4">
-            <h2 className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-foreground leading-tight">
+      <section ref={pricingSectionRef} className="pricing-section py-16 px-4 md:py-24 bg-gradient-to-b from-primary/5 via-background to-primary/5">
+        <div className="container max-w-6xl mx-auto space-y-10 overflow-x-hidden w-full">
+          <div className="text-center space-y-6 px-2 md:px-4">
+            <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-foreground leading-tight">
               Escolha seu plano
             </h2>
-            <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto px-2">
               Invista na sua jornada espiritual e transforme seu estudo da Palavra de Deus
             </p>
-            <div className="flex justify-center">
-              <Badge variant="destructive" className="text-sm md:text-base px-4 md:px-6 py-2 md:py-3 animate-pulse-scale text-white">
+            <div className="flex justify-center px-2">
+              <Badge variant="destructive" className="text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 py-2 md:py-3 animate-pulse-scale text-white">
                 🔥 Oferta especial de lançamento válida somente hoje 🔥
               </Badge>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto px-2 sm:px-4 w-full">
             {/* Plano Básico */}
-            <Card data-testid="card-pricing-basic">
-              <CardHeader className="text-center space-y-4 pb-6">
+            <Card className="pricing-card w-full" data-testid="card-pricing-basic">
+              <CardHeader className="pricing-card-header text-center space-y-4 pb-6">
                 <div className="space-y-2">
-                  <CardTitle className="text-2xl">🔹 Plano Básico</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-xl sm:text-2xl">🔹 Plano Básico</CardTitle>
+                  <CardDescription className="text-sm">
                     Para quem quer começar o estudo da Palavra com simplicidade.
                   </CardDescription>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-lg text-muted-foreground">
+                  <div className="text-base sm:text-lg text-muted-foreground">
                     De <span className="line-through text-red-500 font-semibold">R$ 47,00</span>
                   </div>
-                  <div className="text-base font-semibold text-foreground">
+                  <div className="text-sm sm:text-base font-semibold text-foreground">
                     por
                   </div>
                   <div className="space-y-1">
-                    <div className="text-2xl font-bold text-primary">APENAS</div>
-                    <div className="text-5xl font-bold text-primary">R$ 10</div>
+                    <div className="text-xl sm:text-2xl font-bold text-primary">APENAS</div>
+                    <div className="pricing-price-lg text-4xl sm:text-5xl font-bold text-primary">R$ 10</div>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="pricing-card-content space-y-6">
                 <div className="space-y-3">
                   {basicFeatures.map((feature, index) => (
                     <div 
@@ -678,29 +678,29 @@ export default function Home() {
             </Card>
 
             {/* Plano Premium */}
-            <Card className="border-2 border-primary shadow-lg shadow-primary/20" data-testid="card-pricing-premium">
-              <CardHeader className="text-center space-y-4 pb-6">
-                <Badge className="mx-auto">✨ RECOMENDADO</Badge>
+            <Card className="pricing-card w-full border-2 border-primary shadow-lg shadow-primary/20" data-testid="card-pricing-premium">
+              <CardHeader className="pricing-card-header text-center space-y-4 pb-6">
+                <Badge className="mx-auto text-xs sm:text-sm">✨ RECOMENDADO</Badge>
                 <div className="space-y-2">
-                  <CardTitle className="text-2xl">🔸 Plano Premium</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-xl sm:text-2xl">🔸 Plano Premium</CardTitle>
+                  <CardDescription className="text-sm">
                     Para quem quer mergulhar profundamente na Palavra e receber todos os recursos.
                   </CardDescription>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-lg text-muted-foreground">
+                  <div className="text-base sm:text-lg text-muted-foreground">
                     De <span className="line-through text-red-500 font-semibold">R$ 97,00</span>
                   </div>
-                  <div className="text-base font-semibold text-foreground">
+                  <div className="text-sm sm:text-base font-semibold text-foreground">
                     por
                   </div>
                   <div className="space-y-1">
-                    <div className="text-2xl font-bold text-primary">APENAS</div>
-                    <div className="text-5xl font-bold text-primary">R$ 27</div>
+                    <div className="text-xl sm:text-2xl font-bold text-primary">APENAS</div>
+                    <div className="pricing-price-lg text-4xl sm:text-5xl font-bold text-primary">R$ 27</div>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="pricing-card-content space-y-6">
                 <div className="space-y-3">
                   {premiumFeatures.map((feature, index) => (
                     <div 

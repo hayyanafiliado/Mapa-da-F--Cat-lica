@@ -375,4 +375,57 @@
   .led-x-red {
     animation: led-glow-red 2s ease-in-out infinite;
   }
+
+  /* Pricing Section Responsiveness */
+  .pricing-section {
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .pricing-card {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 430px) {
+    .pricing-section {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+
+    .pricing-card {
+      transform: scale(0.98);
+      transform-origin: center;
+    }
+
+    .pricing-card-header {
+      padding: 1rem;
+    }
+
+    .pricing-card-content {
+      padding: 1rem;
+    }
+
+    .pricing-price-lg {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .pricing-section {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .pricing-card {
+      transform: scale(0.95);
+    }
+
+    .pricing-price-lg {
+      font-size: 2.25rem;
+    }
+  }
 }

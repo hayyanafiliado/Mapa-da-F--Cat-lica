@@ -48,6 +48,8 @@ const brazilianNames = [
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showDiscountPopup, setShowDiscountPopup] = useState(false);
+  const [showExitIntentPopup, setShowExitIntentPopup] = useState(false);
+  const [exitIntentShown, setExitIntentShown] = useState(false);
   const pricingSectionRef = useRef<HTMLElement>(null);
   const { toast } = useToast();
 
@@ -67,6 +69,60 @@ export default function Home() {
 
     return () => clearInterval(interval);
   }, [toast]);
+
+  useEffect(() => {
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0 && !exitIntentShown) {
+        setShowExitIntentPopup(true);
+        setExitIntentShown(true);
+        localStorage.setItem('exitIntentShown', 'true');
+      }
+    };
+
+    const checkExitIntentShown = localStorage.getItem('exitIntentShown');
+    if (checkExitIntentShown) {
+      setExitIntentShown(true);
+    }
+
+    document.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [exitIntentShown]);
+
+  useEffect(() => {
+    let checkoutOpened = false;
+
+    const originalOpen = window.open;
+    window.open = function(...args) {
+      const url = args[0] as string;
+      if (url && (url.includes('perfectpay.com.br') || url.includes('checkout'))) {
+        checkoutOpened = true;
+        sessionStorage.setItem('checkoutOpened', 'true');
+      }
+      return originalOpen.apply(this, args);
+    };
+
+    const handleVisibilityChange = () => {
+      if (!document.hidden && checkoutOpened) {
+        setTimeout(() => {
+          const wasCheckoutOpened = sessionStorage.getItem('checkoutOpened');
+          if (wasCheckoutOpened && !sessionStorage.getItem('backFromCheckoutShown')) {
+            setShowExitIntentPopup(true);
+            sessionStorage.setItem('backFromCheckoutShown', 'true');
+          }
+        }, 1000);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.open = originalOpen;
+    };
+  }, []);
 
   const handleCTAClick = () => {
     pricingSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -116,6 +172,22 @@ export default function Home() {
     }
     setShowDiscountPopup(false);
     window.open('https://go.perfectpay.com.br/PPU38CQ2I4L', '_blank');
+  };
+
+  const handleExitIntentOffer = () => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'AddToCart', {
+        content_name: 'Oferta Exit Intent - Premium',
+        value: 22.90,
+        currency: 'BRL'
+      });
+    }
+    setShowExitIntentPopup(false);
+    window.open('https://go.perfectpay.com.br/PPU38CQ2I4R', '_blank');
+  };
+
+  const handleCloseExitIntent = () => {
+    setShowExitIntentPopup(false);
   };
 
   const carouselImages = [
@@ -961,6 +1033,77 @@ export default function Home() {
               data-testid="button-decline-offer"
             >
               Não, prefiro o básico por R$ 10
+            </AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Popup de Exit Intent / Volta do Checkout */}
+      <AlertDialog open={showExitIntentPopup} onOpenChange={setShowExitIntentPopup}>
+        <AlertDialogContent className="max-w-md" data-testid="dialog-exit-intent-popup">
+          <AlertDialogHeader>
+            <div className="text-center space-y-3">
+              <Badge variant="destructive" className="text-xs px-3 py-1 animate-pulse-scale text-white">
+                🚨 ESPERE! NÃO VÁ EMBORA 🚨
+              </Badge>
+              <AlertDialogTitle className="text-xl font-bold text-foreground">
+                Última Chance: Oferta Exclusiva!
+              </AlertDialogTitle>
+              <AlertDialogDescription className="text-sm text-foreground/80">
+                Antes de sair, veja essa oferta especial que preparamos para você:
+              </AlertDialogDescription>
+            </div>
+          </AlertDialogHeader>
+
+          <div className="py-4">
+            <div className="text-center space-y-3 border-2 border-primary rounded-lg p-4 bg-gradient-to-b from-primary/5 to-transparent">
+              <div className="space-y-1">
+                <div className="text-sm text-muted-foreground">
+                  🎁 Plano Premium com <span className="font-bold text-primary">DESCONTO ESPECIAL</span>
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  De <span className="line-through text-red-500 font-semibold">R$ 27,00</span> por apenas
+                </div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-primary via-chart-4 to-accent bg-clip-text text-transparent">
+                  R$ 22,90
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  💰 Economize R$ 4,10 agora!
+                </p>
+              </div>
+              
+              <div className="bg-muted/30 backdrop-blur-sm rounded-lg p-3 space-y-2">
+                <p className="font-semibold text-foreground text-sm">✨ Tudo do Premium incluído:</p>
+                <div className="grid gap-1.5">
+                  {premiumFeatures.slice(0, 6).map((feature, index) => (
+                    <div key={index} className="flex items-start gap-2">
+                      <Check className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs text-foreground text-left">{feature.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <p className="text-xs font-semibold text-red-500 animate-pulse">
+                ⚠️ Oferta válida SOMENTE agora!
+              </p>
+            </div>
+          </div>
+
+          <AlertDialogFooter className="flex-col sm:flex-col gap-2">
+            <AlertDialogAction
+              onClick={handleExitIntentOffer}
+              className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground text-sm font-bold"
+              data-testid="button-accept-exit-intent-offer"
+            >
+              ✅ SIM! QUERO O PREMIUM POR R$ 22,90
+            </AlertDialogAction>
+            <AlertDialogCancel
+              onClick={handleCloseExitIntent}
+              className="w-full text-xs"
+              data-testid="button-close-exit-intent"
+            >
+              Não, obrigado
             </AlertDialogCancel>
           </AlertDialogFooter>
         </AlertDialogContent>

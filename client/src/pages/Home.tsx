@@ -878,7 +878,7 @@ export default function Home() {
           <AlertDialogHeader>
             <div className="text-center space-y-3">
               <Badge variant="destructive" className="text-xs px-3 py-1 animate-pulse-scale text-white">
-                🔥 OFERTA SOMENTE HOJE 🔥
+                ⏰ OFERTA ACABA EM 5 MINUTOS ⏰
               </Badge>
               <AlertDialogTitle className="text-xl font-bold text-foreground">
                 Espere! Oferta Especial
@@ -915,8 +915,8 @@ export default function Home() {
                 </div>
               </div>
               
-              <p className="text-xs text-muted-foreground">
-                ⏰ Válido somente hoje
+              <p className="text-xs text-muted-foreground font-semibold text-red-500">
+                ⚠️ Esta oferta vai sumir em 5 minutos!
               </p>
             </div>
           </div>

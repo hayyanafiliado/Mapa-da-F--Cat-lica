@@ -4,6 +4,16 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { 
+  AlertDialog, 
+  AlertDialogAction, 
+  AlertDialogCancel, 
+  AlertDialogContent, 
+  AlertDialogDescription, 
+  AlertDialogFooter, 
+  AlertDialogHeader, 
+  AlertDialogTitle 
+} from "@/components/ui/alert-dialog";
 import logoImage from "@assets/Mapa da Fé Catolica_1761328374413.png";
 import joaoImage from "@assets/Mapa da Fé Catolica (1)_1761328388197.png";
 import matheusImage from "@assets/Mapa da Fé Catolica (2)_1761328396544.png";
@@ -28,9 +38,24 @@ import { useState, useRef } from "react";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showDiscountPopup, setShowDiscountPopup] = useState(false);
   const pricingSectionRef = useRef<HTMLElement>(null);
 
   const handleCTAClick = () => {
+    pricingSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const handleBasicPlanClick = () => {
+    setShowDiscountPopup(true);
+  };
+
+  const handleAcceptPremiumOffer = () => {
+    setShowDiscountPopup(false);
+    pricingSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const handleDeclineOffer = () => {
+    setShowDiscountPopup(false);
     pricingSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
@@ -609,7 +634,7 @@ export default function Home() {
                   ))}
                 </div>
                 <Button 
-                  onClick={handleCTAClick}
+                  onClick={handleBasicPlanClick}
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground border-primary-border animate-pulse-scale"
                   size="lg"
                   data-testid="button-buy-basic"
@@ -813,6 +838,86 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Popup de Desconto Limitado */}
+      <AlertDialog open={showDiscountPopup} onOpenChange={setShowDiscountPopup}>
+        <AlertDialogContent className="max-w-2xl" data-testid="dialog-discount-popup">
+          <AlertDialogHeader>
+            <div className="text-center space-y-4">
+              <Badge variant="destructive" className="text-sm md:text-base px-4 py-2 animate-pulse-scale text-white">
+                🔥 OFERTA ESPECIAL VÁLIDA SOMENTE HOJE 🔥
+              </Badge>
+              <AlertDialogTitle className="text-2xl md:text-3xl font-bold text-foreground">
+                Espere! Temos uma oferta especial para você!
+              </AlertDialogTitle>
+              <AlertDialogDescription className="text-base md:text-lg text-foreground/80">
+                Antes de escolher o plano básico, que tal aproveitar o{" "}
+                <span className="font-bold text-primary">Plano Premium completo</span> com um desconto exclusivo de hoje?
+              </AlertDialogDescription>
+            </div>
+          </AlertDialogHeader>
+
+          <div className="space-y-6 py-4">
+            <Card className="border-2 border-primary shadow-lg">
+              <CardHeader className="text-center space-y-4 pb-4">
+                <Badge className="mx-auto bg-gradient-to-r from-primary to-accent">✨ DESCONTO EXCLUSIVO ✨</Badge>
+                <CardTitle className="text-xl md:text-2xl">🔸 Plano Premium</CardTitle>
+                <div className="space-y-2">
+                  <div className="text-base text-muted-foreground">
+                    De <span className="line-through text-red-500 font-semibold">R$ 27,00</span>
+                  </div>
+                  <div className="text-sm font-semibold text-foreground">
+                    por apenas
+                  </div>
+                  <div className="space-y-1">
+                    <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-chart-4 to-accent bg-clip-text text-transparent">
+                      R$ 19,90
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      Economia de R$ 7,10 - somente hoje!
+                    </p>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="bg-muted/30 backdrop-blur-sm rounded-lg p-4">
+                  <p className="font-semibold text-foreground mb-3">Tudo que você recebe no Premium:</p>
+                  <div className="grid gap-2">
+                    {premiumFeatures.slice(0, 6).map((feature, index) => (
+                      <div key={index} className="flex items-start gap-2">
+                        <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-foreground">{feature.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="text-center">
+                  <p className="text-xs text-muted-foreground">
+                    ⏰ Esta oferta expira hoje à meia-noite
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <AlertDialogFooter className="flex-col sm:flex-col gap-2">
+            <AlertDialogAction
+              onClick={handleAcceptPremiumOffer}
+              className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground h-12 text-base font-bold"
+              data-testid="button-accept-premium-offer"
+            >
+              SIM! QUERO O PLANO PREMIUM POR R$ 19,90
+            </AlertDialogAction>
+            <AlertDialogCancel
+              onClick={handleDeclineOffer}
+              className="w-full"
+              data-testid="button-decline-offer"
+            >
+              Não, obrigado. Prefiro o plano básico por R$ 17
+            </AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

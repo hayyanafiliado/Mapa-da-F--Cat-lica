@@ -65,10 +65,11 @@ export default function Home() {
         title: "🎉 Nova compra realizada!",
         description: `${randomName} adquiriu o Mapa da Fé Católica ${randomTime}`,
         duration: 4000,
+        variant: "success",
       });
     };
 
-    const interval = setInterval(showPurchaseNotification, 5000);
+    const interval = setInterval(showPurchaseNotification, 10000);
 
     return () => clearInterval(interval);
   }, [toast]);

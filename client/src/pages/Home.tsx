@@ -78,18 +78,50 @@ export default function Home() {
     pricingSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const handlePremiumPlanClick = () => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'InitiateCheckout', {
+        content_name: 'Plano Premium',
+        value: 27.00,
+        currency: 'BRL'
+      });
+    }
+    window.open('https://pay.kiwify.com.br/Wgs6D79', '_blank');
+  };
+
   const handleBasicPlanClick = () => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'InitiateCheckout', {
+        content_name: 'Plano Básico',
+        value: 10.00,
+        currency: 'BRL'
+      });
+    }
     setShowDiscountPopup(true);
   };
 
   const handleAcceptPremiumOffer = () => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'AddToCart', {
+        content_name: 'Plano Premium - Oferta Especial',
+        value: 22.90,
+        currency: 'BRL'
+      });
+    }
     setShowDiscountPopup(false);
-    pricingSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.open('https://pay.kiwify.com.br/Wgs6D79', '_blank');
   };
 
   const handleDeclineOffer = () => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'AddToCart', {
+        content_name: 'Plano Básico',
+        value: 10.00,
+        currency: 'BRL'
+      });
+    }
     setShowDiscountPopup(false);
-    pricingSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.open('https://pay.kiwify.com.br/jrPZA7o', '_blank');
   };
 
   const carouselImages = [
@@ -718,7 +750,7 @@ export default function Home() {
                   ))}
                 </div>
                 <Button 
-                  onClick={handleCTAClick}
+                  onClick={handlePremiumPlanClick}
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground border-primary-border animate-pulse-scale"
                   size="lg"
                   data-testid="button-buy-premium"

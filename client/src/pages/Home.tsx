@@ -84,10 +84,43 @@ export default function Home() {
       setExitIntentShown(true);
     }
 
+    let lastScrollTop = 0;
+    let scrollUpCount = 0;
+
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop < lastScrollTop && scrollTop < 100) {
+        scrollUpCount++;
+        
+        if (scrollUpCount > 2 && !exitIntentShown && scrollTop > 0) {
+          setShowExitIntentPopup(true);
+          setExitIntentShown(true);
+          localStorage.setItem('exitIntentShown', 'true');
+        }
+      } else {
+        scrollUpCount = 0;
+      }
+      
+      lastScrollTop = scrollTop;
+    };
+
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (!exitIntentShown) {
+        setShowExitIntentPopup(true);
+        setExitIntentShown(true);
+        localStorage.setItem('exitIntentShown', 'true');
+      }
+    };
+
     document.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('beforeunload', handleBeforeUnload);
 
     return () => {
       document.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
     };
   }, [exitIntentShown]);
 

@@ -86,7 +86,7 @@ export default function Home() {
         currency: 'BRL'
       });
     }
-    window.open('https://pay.kiwify.com.br/Wgs6D79', '_blank');
+    window.open('https://go.perfectpay.com.br/PPU38CQ2I4O', '_blank');
   };
 
   const handleBasicPlanClick = () => {
@@ -109,7 +109,7 @@ export default function Home() {
       });
     }
     setShowDiscountPopup(false);
-    window.open('https://pay.kiwify.com.br/Wgs6D79', '_blank');
+    window.open('https://go.perfectpay.com.br/PPU38CQ2I4R', '_blank');
   };
 
   const handleDeclineOffer = () => {
@@ -121,7 +121,7 @@ export default function Home() {
       });
     }
     setShowDiscountPopup(false);
-    window.open('https://pay.kiwify.com.br/jrPZA7o', '_blank');
+    window.open('https://go.perfectpay.com.br/PPU38CQ2I4L', '_blank');
   };
 
   const carouselImages = [

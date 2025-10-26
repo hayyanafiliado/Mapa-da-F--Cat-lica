@@ -56,10 +56,11 @@ export default function Home() {
   useEffect(() => {
     const showPurchaseNotification = () => {
       const randomName = brazilianNames[Math.floor(Math.random() * brazilianNames.length)];
+      const isMobile = window.innerWidth < 640;
       
       toast({
-        title: "🎉 Nova compra realizada!",
-        description: `${randomName} acabou de comprar`,
+        title: isMobile ? undefined : "🎉 Nova compra realizada!",
+        description: isMobile ? `🎉 ${randomName} acabou de comprar` : `${randomName} acabou de comprar`,
         duration: 4000,
         variant: "success",
       });

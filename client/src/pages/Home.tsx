@@ -188,7 +188,7 @@ export default function Home() {
     if (typeof window !== 'undefined' && (window as any).fbq) {
       (window as any).fbq('track', 'AddToCart', {
         content_name: 'Plano Premium - Oferta Especial',
-        value: 22.90,
+        value: 14.90,
         currency: 'BRL'
       });
     }
@@ -212,7 +212,7 @@ export default function Home() {
     if (typeof window !== 'undefined' && (window as any).fbq) {
       (window as any).fbq('track', 'AddToCart', {
         content_name: 'Oferta Exit Intent - Premium',
-        value: 22.90,
+        value: 14.90,
         currency: 'BRL'
       });
     }
@@ -1028,10 +1028,10 @@ export default function Home() {
                   De <span className="line-through text-red-500 font-semibold">R$ 27,00</span> por apenas
                 </div>
                 <div className="text-4xl font-bold bg-gradient-to-r from-primary via-chart-4 to-accent bg-clip-text text-transparent">
-                  R$ 22,90
+                  R$ 14,90
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Economia de R$ 4,10!
+                  Economia de R$ 12,10!
                 </p>
               </div>
               
@@ -1059,7 +1059,7 @@ export default function Home() {
               className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground text-sm font-bold"
               data-testid="button-accept-premium-offer"
             >
-              QUERO O PREMIUM POR R$ 22,90
+              QUERO O PREMIUM POR R$ 14,90
             </AlertDialogAction>
             <AlertDialogCancel
               onClick={handleDeclineOffer}
@@ -1099,10 +1099,10 @@ export default function Home() {
                   De <span className="line-through text-red-500 font-semibold">R$ 27,00</span> por apenas
                 </div>
                 <div className="text-4xl font-bold bg-gradient-to-r from-primary via-chart-4 to-accent bg-clip-text text-transparent">
-                  R$ 22,90
+                  R$ 14,90
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  💰 Economize R$ 4,10 agora!
+                  💰 Economize R$ 12,10 agora!
                 </p>
               </div>
               
@@ -1130,7 +1130,7 @@ export default function Home() {
               className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground text-sm font-bold"
               data-testid="button-accept-exit-intent-offer"
             >
-              ✅ SIM! QUERO O PREMIUM POR R$ 22,90
+              ✅ SIM! QUERO O PREMIUM POR R$ 14,90
             </AlertDialogAction>
             <AlertDialogCancel
               onClick={handleCloseExitIntent}

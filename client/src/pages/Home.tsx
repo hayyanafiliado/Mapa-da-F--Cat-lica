@@ -217,7 +217,7 @@ export default function Home() {
       });
     }
     setShowExitIntentPopup(false);
-    window.open('https://go.perfectpay.com.br/PPU38CQ2I4R', '_blank');
+    window.open('https://go.perfectpay.com.br/PPU38CQ2I93', '_blank');
   };
 
   const handleCloseExitIntent = () => {

@@ -1,0 +1,102 @@
+═══════════════════════════════════════════════════════════════════
+  INSTRUÇÕES PARA HOSPEDAR NA NETLIFY
+═══════════════════════════════════════════════════════════════════
+
+📋 IMPORTANTE: Leia tudo antes de começar!
+
+═══════════════════════════════════════════════════════════════════
+
+✅ MÉTODO 1 - DRAG & DROP (MAIS FÁCIL)
+───────────────────────────────────────────────────────────────────
+
+1. Abra esta pasta no seu computador (netlify-deploy/)
+
+2. SELECIONE TODOS OS ARQUIVOS DENTRO DESTA PASTA:
+   - index.html
+   - favicon.png
+   - _redirects
+   - pasta assets/ (com tudo dentro)
+   
+   ⚠️ NÃO arraste a pasta "netlify-deploy" inteira!
+   ✅ Arraste apenas o CONTEÚDO de dentro dela!
+
+3. Acesse: https://app.netlify.com/drop
+
+4. Arraste os arquivos selecionados para a área indicada
+
+5. Aguarde o upload completar (alguns segundos)
+
+6. Pronto! Seu site estará online com uma URL tipo:
+   https://seu-site-123456.netlify.app
+
+═══════════════════════════════════════════════════════════════════
+
+✅ MÉTODO 2 - VIA GITHUB
+───────────────────────────────────────────────────────────────────
+
+1. Crie um repositório no GitHub
+
+2. Faça upload APENAS do conteúdo desta pasta:
+   - index.html
+   - favicon.png
+   - _redirects
+   - pasta assets/
+   
+   ⚠️ Os arquivos devem ficar na RAIZ do repositório!
+
+3. Na Netlify (https://app.netlify.com):
+   - Clique em "Add new site" → "Import an existing project"
+   - Escolha GitHub
+   - Selecione seu repositório
+   
+4. Configure:
+   - Build command: (deixe vazio)
+   - Publish directory: (deixe vazio ou coloque ".")
+   
+5. Clique em "Deploy site"
+
+6. Aguarde o deploy (1-2 minutos)
+
+7. Pronto! Seu site estará online!
+
+═══════════════════════════════════════════════════════════════════
+
+🔧 ARQUIVOS INCLUÍDOS
+───────────────────────────────────────────────────────────────────
+
+✓ index.html          - Página principal
+✓ favicon.png         - Ícone do site
+✓ _redirects          - Configuração para React funcionar
+✓ assets/style.css    - Todo o CSS da aplicação
+✓ assets/script.js    - Todo o JavaScript da aplicação
+✓ assets/*.png        - Todas as imagens
+
+═══════════════════════════════════════════════════════════════════
+
+❓ PROBLEMAS COMUNS
+───────────────────────────────────────────────────────────────────
+
+PROBLEMA: "Page not found" após deploy
+SOLUÇÃO: Você provavelmente arrastou a pasta inteira ao invés 
+         do conteúdo. Apague o site e faça upload novamente 
+         apenas dos arquivos de dentro da pasta.
+
+PROBLEMA: CSS/JS não carrega
+SOLUÇÃO: Verifique se a pasta "assets" foi enviada junto
+
+PROBLEMA: Imagens não aparecem
+SOLUÇÃO: Verifique se enviou a pasta "assets" completa
+
+═══════════════════════════════════════════════════════════════════
+
+📞 SUPORTE
+───────────────────────────────────────────────────────────────────
+
+Se tiver problemas, acesse:
+https://answers.netlify.com
+
+═══════════════════════════════════════════════════════════════════
+
+Boa sorte com seu deploy! 🚀
+
+═══════════════════════════════════════════════════════════════════

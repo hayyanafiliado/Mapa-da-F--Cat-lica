@@ -5,7 +5,7 @@ export default function PricingCardExample() {
     "Mapa da Bíblia Completo",
     "3 Bônus Exclusivos",
     "Acesso Vitalício",
-    "30 Dias de Garantia"
+    "7 Dias de Garantia"
   ];
 
   return (

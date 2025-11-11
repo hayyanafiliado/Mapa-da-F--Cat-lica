@@ -43,7 +43,7 @@ export default function PricingCard({
         </div>
         <CTAButton className="w-full" />
         <p className="text-xs text-center text-muted-foreground leading-relaxed">
-          Compra segura - por apenas de 30 dias<br />
+          Compra segura - por apenas de 7 dias<br />
           Suporte aos alunos exclusivo para dúvidas, perguntas e experiências
         </p>
       </CardContent>

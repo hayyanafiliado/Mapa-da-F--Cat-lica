@@ -240,9 +240,9 @@ export default function Home() {
     { name: "Linha do Tempo Cronológica", included: true },
     { name: "Registros da Fé", included: true },
     { name: "Bônus Plano de Leitura", included: false },
-    { name: "Acesso vitalício à área de membros", included: false, note: "(30 dias de acesso)" },
+    { name: "Acesso vitalício à área de membros", included: false, note: "(7 dias de acesso)" },
     { name: "Versão imprimível em alta qualidade", included: false },
-    { name: "Garantia 30 dias", included: true },
+    { name: "Garantia 7 dias", included: true },
   ];
 
   const premiumFeatures = [
@@ -254,7 +254,7 @@ export default function Home() {
     { name: "Diário da Oração (Lectio Divina)", included: true },
     { name: "Versão imprimível em alta qualidade", included: true },
     { name: "Acesso vitalício à área de membros", included: true },
-    { name: "Garantia 30 dias", included: true },
+    { name: "Garantia 7 dias", included: true },
   ];
 
   const faqItems = [
@@ -904,17 +904,17 @@ export default function Home() {
               <div className="flex justify-center">
                 <img 
                   src={garantia30DiasImage} 
-                  alt="30 Dias de Garantia" 
+                  alt="7 Dias de Garantia" 
                   className="h-24 md:h-32 w-auto"
-                  data-testid="img-garantia-30-dias"
+                  data-testid="img-garantia-7-dias"
                 />
               </div>
               <h2 className="font-heading font-bold text-2xl md:text-3xl text-foreground">
-                🛡️ Garantia de 30 Dias
+                🛡️ Garantia de 7 Dias
               </h2>
               <div className="space-y-4 text-foreground/90">
                 <p className="text-lg">
-                  Você tem <span className="font-semibold text-primary">30 dias de garantia total.</span>
+                  Você tem <span className="font-semibold text-primary">7 dias de garantia total.</span>
                 </p>
                 <p className="text-lg">
                   Se não sentir que sua compreensão da Palavra foi transformada, devolvemos{" "}

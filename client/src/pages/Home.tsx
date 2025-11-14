@@ -131,7 +131,7 @@ export default function Home() {
     const originalOpen = window.open;
     window.open = function(...args) {
       const url = args[0] as string;
-      if (url && (url.includes('perfectpay.com.br') || url.includes('checkout'))) {
+      if (url && (url.includes('perfectpay.com.br') || url.includes('ggcheckout.com') || url.includes('checkout'))) {
         checkoutOpened = true;
         sessionStorage.setItem('checkoutOpened', 'true');
       }
@@ -170,7 +170,7 @@ export default function Home() {
         currency: 'BRL'
       });
     }
-    window.open('https://go.perfectpay.com.br/PPU38CQ2I4O', '_blank');
+    window.open('https://www.ggcheckout.com/checkout/v2/8c49KpvMLaeEt1edlOLl', '_blank');
   };
 
   const handleBasicPlanClick = () => {
@@ -193,7 +193,7 @@ export default function Home() {
       });
     }
     setShowDiscountPopup(false);
-    window.open('https://go.perfectpay.com.br/PPU38CQ2I4R', '_blank');
+    window.open('https://www.ggcheckout.com/checkout/v2/qRI4cB4o8RDqzNXZlenJ', '_blank');
   };
 
   const handleDeclineOffer = () => {
@@ -205,7 +205,7 @@ export default function Home() {
       });
     }
     setShowDiscountPopup(false);
-    window.open('https://go.perfectpay.com.br/PPU38CQ2I4L', '_blank');
+    window.open('https://www.ggcheckout.com/checkout/v2/X6hCm7Ld3BUPvtJkV8hW', '_blank');
   };
 
   const handleExitIntentOffer = () => {
@@ -217,7 +217,7 @@ export default function Home() {
       });
     }
     setShowExitIntentPopup(false);
-    window.open('https://go.perfectpay.com.br/PPU38CQ2I93', '_blank');
+    window.open('https://www.ggcheckout.com/checkout/v2/TWSHiQLH3KNBi11ktuL4', '_blank');
   };
 
   const handleCloseExitIntent = () => {
